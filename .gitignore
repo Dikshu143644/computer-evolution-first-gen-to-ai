@@ -1,0 +1,19 @@
+# Dependencies
+node_modules/
+__pycache__/
+*.pyc
+
+# IDE & Editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS temporary files
+Thumbs.db
+Desktop.ini
+.DS_Store
+
+# Temporary logs & tests
+*.log
+test.mp4
