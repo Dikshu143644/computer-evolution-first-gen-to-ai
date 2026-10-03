@@ -12,6 +12,7 @@ import { activitiesData } from './data/activitiesData.js';
 import { diagrams } from './assets/diagrams.js';
 import { PresentationDeck } from './presentation.js';
 import { QuizEngine } from './quiz.js';
+import { g1ClipsData } from './data/g1ClipsData.js';
 
 class App {
   constructor() {
@@ -782,9 +783,29 @@ class App {
     const ccSubText = document.getElementById('videoLiveCcSubText');
     if (!player) return;
 
-    const scenes = this.videoScenesData[this.currentVideoGen] || this.videoScenesData[1];
     const totalDur = player.duration || 45;
     const current = player.currentTime;
+
+    // Granular 30-clip support for Generation 1 (1940-1956)
+    if (this.currentVideoGen === 1 && g1ClipsData && g1ClipsData.length > 0) {
+      const clipIdx = Math.min(Math.floor((current / totalDur) * g1ClipsData.length), g1ClipsData.length - 1);
+      const clip = g1ClipsData[clipIdx];
+      if (ccTag) {
+        ccTag.textContent = `📌 ${clip.prompt_id} (${clip.timeline_in_reel}): ${clip.title_marathi} • ${clip.title_english}`;
+      }
+      if (ccText) {
+        ccText.textContent = this.currentCcLang === 'mr' ? clip.audio.narration_mr : clip.teaching_point;
+      }
+      if (ccSubText) {
+        const overlay = clip.overlay_text_postprod_mr ? clip.overlay_text_postprod_mr.join(' • ') : '';
+        ccSubText.textContent = this.currentCcLang === 'mr' 
+          ? (overlay ? `💡 ${overlay}` : clip.title_english)
+          : clip.audio.narration_mr;
+      }
+      return;
+    }
+
+    const scenes = this.videoScenesData[this.currentVideoGen] || this.videoScenesData[1];
     const sceneIdx = Math.min(Math.floor((current / totalDur) * 5), 4);
     const scene = scenes[sceneIdx] || scenes[0];
 

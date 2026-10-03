@@ -70,21 +70,26 @@
    - ३ पातळीनुसार MCQ व True/False
    - कालानुक्रम मांडणी स्पर्धा (Timeline Ordering Challenge)
    - पिढ्यांच्या जोड्या (Generation Matching)
-6. **🎬 ५ पिढ्यांचे सिनेमॅटिक व्हिडिओ रील्स (5 Generations Cinematic HD Video Hub):**
-   - प्रत्येक पिढीसाठी उच्च दर्जाचे Ken-Burns मोशन व्हिडिओ आणि टेलीमेट्री HUD:
+7. **🎬 ५ पिढ्यांचे सिनेमॅटिक व्हिडिओ रील्स व ३०-क्लिप्स मास्टर प्रॉम्प्ट पॅकेज:**
+   - **पहिली पिढी (१९४०-५६): ३० स्वतंत्र १०-सेकंदांच्या क्लिप्सचे प्रॉम्प्ट पॅकेज (५ मिनिटे पूर्ण):**
+     - 📄 **Markdown मार्गदर्शक:** [`prompts/GENERATION_1_30_CLIPS_OMNIFLASH.md`](prompts/GENERATION_1_30_CLIPS_OMNIFLASH.md) — मॉडेल `omniflash-1.1`, ग्लोबल सीड `7741209`, सलग ३० क्लिप्स (`G1-C01` ते `G1-C30`), प्रत्येक क्लिपसाठी स्वतंत्र JSON आणि स्टँडअलोन प्रॉम्प्ट.
+     - 💾 **मशीन-रिडेबल JSON:** [`prompts/GENERATION_1_30_CLIPS_OMNIFLASH.json`](prompts/GENERATION_1_30_CLIPS_OMNIFLASH.json).
+     - 🎙️ **३० स्वतंत्र मराठी ऑडिओ फाइल्स:** `assets/audio/gen1_clips/g1_c01.mp3` ते `g1_c30.mp3` (शिक्षकी शांत आवाज `mr-IN-ManoharNeural`).
+     - 🎧 **५ मिनिटांचा सलग मास्टर ऑडिओ ट्रॅक व सबटायटल्स:** `assets/audio/gen1_mr_full_5min.mp3` आणि `assets/audio/gen1_mr_full_5min.vtt`.
+   - **५ पिढ्यांचे एचडी सिनेमॅटिक व्हिडिओ रील्स:**
      - **१ली पिढी (१९४०-५६):** व्हॅक्यूम ट्यूब्स व ENIAC (`gen1_video.mp4`)
      - **२री पिढी (१९५६-६३):** ट्रान्झिस्टर क्रांती व IBM 1401 (`gen2_video.mp4`)
      - **३री पिढी (१९६४-७१):** इंटिग्रेटेड सर्किट्स व सिलिकॉन चिप्स (`gen3_video.mp4`)
      - **४थी पिढी (१९७१-आज):** मायक्रोप्रोसेसर व PC क्रांती (`gen4_video.mp4`)
      - **५वी पिढी (वर्तमान-भविष्य):** AI व क्वांटम सुपरकॉम्प्युटिंग (`gen5_video.mp4`)
    - ब्राऊझरमधील सिनेमा प्लेअरमध्ये एका क्लिकवर थेट व्हिडिओ पाहता येतो.
-7. **शिक्षकांसाठी ५ प्रत्यक्ष उपक्रम (5 Classroom Activities):**
+8. **शिक्षकांसाठी ५ प्रत्यक्ष उपक्रम (5 Classroom Activities):**
    - Human Computer
    - Generation Relay
    - Timeline Race
    - Is It a Computer?
    - Why Was It Invented?
-8. **प्रिंट सारांश (Print Handout Ready):** वर्गखोलीत वितरणासाठी अनुकूल प्रिंट स्टाईलशीट.
+9. **प्रिंट सारांश (Print Handout Ready):** वर्गखोलीत वितरणासाठी अनुकूल प्रिंट स्टाईलशीट.
 
 ---
 
