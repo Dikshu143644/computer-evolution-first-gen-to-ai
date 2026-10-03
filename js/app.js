@@ -777,8 +777,10 @@ class App {
   updateLiveCaptions() {
     if (this.currentCcLang === 'off') return;
     const player = document.getElementById('generationVideoPlayer');
+    const ccTag = document.getElementById('videoHudSceneTag');
     const ccText = document.getElementById('videoLiveCcText');
-    if (!player || !ccText) return;
+    const ccSubText = document.getElementById('videoLiveCcSubText');
+    if (!player) return;
 
     const scenes = this.videoScenesData[this.currentVideoGen] || this.videoScenesData[1];
     const totalDur = player.duration || 45;
@@ -786,8 +788,17 @@ class App {
     const sceneIdx = Math.min(Math.floor((current / totalDur) * 5), 4);
     const scene = scenes[sceneIdx] || scenes[0];
 
-    const label = this.currentCcLang === 'mr' ? `💬 CC [मराठी]: ${scene.mr}` : `💬 CC [English]: ${scene.en}`;
-    ccText.textContent = label;
+    if (ccTag) {
+      ccTag.textContent = `📌 दृश्य ०${sceneIdx + 1}: ${scene.title}`;
+    }
+
+    if (ccText) {
+      ccText.textContent = this.currentCcLang === 'mr' ? scene.mr : scene.en;
+    }
+
+    if (ccSubText) {
+      ccSubText.textContent = this.currentCcLang === 'mr' ? scene.en : scene.mr;
+    }
   }
 
   playGenerationVideo(genNum, autoPlay = true) {

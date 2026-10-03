@@ -1,41 +1,137 @@
 import os
-import time
-from gtts import gTTS
+import sys
+import subprocess
 
-scripts = {
+if hasattr(sys.stdout, 'reconfigure'):
+    sys.stdout.reconfigure(encoding='utf-8')
+
+# Professional Documentary Scripts for all 5 Generations
+# Carefully punctuated with pauses and narrative cadence for human-like emotional speech
+SCRIPTS = {
+
     1: {
-        'mr': 'संगणक उत्क्रांतीच्या पहिल्या पिढीत आपले स्वागत आहे. पहिल्या पिढीचा कालावधी १९४० ते १९५६ मानला जातो. या पिढीतील संगणकांमध्ये मुख्य इलेक्ट्रॉनिक घटक म्हणून व्हॅक्यूम ट्यूब्स वापरल्या जात असत. उदाहरणार्थ, १९४६ मधील एनियाक हा जगातील पहिला इलेक्ट्रॉनिक संगणक होता. यामध्ये १८ हजार व्हॅक्यूम ट्यूब्स होत्या, त्याचे वजन तब्बल ३० टन होते आणि तो एका मोठ्या हॉलएवढा होता. या संगणकांमध्ये साठवणुकीसाठी मॅग्नेटिक ड्रम आणि इनपुटसाठी पंच कार्ड्स वापरले जात. हे संगणक केवळ बायनरी मशीन लँग्वेज समजायचे आणि सेकंदाला सुमारे पाच हजार आकडेमोड करत. उष्णता, विजेचा प्रचंड वापर आणि व्हॅक्यूम ट्यूब्स वारंवार जळणे ही या पिढीची मुख्य आव्हाने होती.',
-        'en': 'Welcome to the First Generation of Computers, spanning from 1940 to 1956. The defining core technology of this era was the vacuum tube, used for circuitry and magnetic drums for memory. The most famous breakthrough was ENIAC in 1946, designed by John Mauchly and J. Presper Eckert. ENIAC contained over 18,000 vacuum tubes, weighed 30 tons, and consumed 150 kilowatts of electricity. Programmed entirely in binary machine language using punch cards, it could calculate 5,000 additions per second. Despite massive heat generation and tube failures, it laid the foundation for modern electronic computing.'
+        'title_mr': 'पहिली पिढी: व्हॅक्यूम ट्यूब्स व ENIAC (1940 – 1956)',
+        'title_en': 'First Generation: Vacuum Tubes & The ENIAC (1940 – 1956)',
+        'mr': '''संगणक उत्क्रांतीच्या पहिल्या पिढीत आपले मनःपूर्वक स्वागत आहे! 
+१९४० ते १९५६ चा हा काळ, मानवाच्या तंत्रज्ञान क्रांतीची खरी सुरुवात होती. 
+कल्पना करा, एका मोठ्या सभागृहाएवढा अवाढव्य संगणक, ज्यामध्ये १८ हजारांपेक्षा जास्त व्हॅक्यूम ट्यूब्स जळजळत होत्या! 
+होय, हाच तो १९४६ चा ऐतिहासिक 'एनियाक' संगणक. 
+याचे वजन तब्बल ३० टन होते, आणि तो चालू असताना तब्बल १५० किलोवॅट वीज खर्ची पडायची. 
+डेटा साठवण्यासाठी मॅग्नेटिक ड्रम्स आणि आज्ञा देण्यासाठी पंच कार्ड्सचा वापर केला जात असे. 
+जरी या प्रचंड उष्णतेमुळे व्हॅक्यूम ट्यूब्स वारंवार खराब व्हायच्या, तरी सेकंदाला ५ हजार गणिते सोडवण्याची त्याची ताकद... त्या काळात एक अद्भुत चमत्कार मानली गेली. 
+याच पहिल्या पिढीने आधुनिक डिजिटल जगाचा भक्कम पाया रचला!''',
+        'en': '''Welcome to the monumental First Generation of Computing, from 1940 to 1956. 
+Picture a colossal machine spanning an entire room, glowing with over eighteen thousand vacuum tubes! 
+This was the legendary ENIAC in 1946, engineered by John Mauchly and J. Presper Eckert. 
+Weighing over thirty tons and drawing a staggering one hundred and fifty kilowatts of power, it crackled with computational energy. 
+Programmers painstakingly fed raw punch cards and coded in direct binary machine language. 
+While extreme heat and frequent tube burnout posed relentless challenges, ENIAC proved to humankind that electronic calculation could conquer previously impossible mathematical frontiers, laying the enduring foundation for all digital history!'''
     },
     2: {
-        'mr': 'दुसऱ्या पिढीचा कालावधी १९५६ ते १९६३ आहे. या पिढीत व्हॅक्यूम ट्यूब्सची जागा क्रांतिकारक ट्रान्झिस्टरने घेतली. १९४७ मध्ये बेल लॅब्ज येथे विल्यम शॉकली, जॉन बार्डिन आणि वॉल्टर ब्रॅटन यांनी ट्रान्झिस्टरचा शोध लावला. ट्रान्झिस्टरमुळे संगणकांचा आकार हजार पटींनी लहान झाला, वीज वापर कमी झाला आणि वेग सेकंदाला लाखो ऑपरेशन्सपर्यंत वाढला. मेमरीसाठी मॅग्नेटिक कोर मेमरी आली. तसेच पहिल्यांदा फोरट्रान आणि कोबोल सारख्या उच्च-स्तरीय प्रोग्रामिंग भाषांचा उगम झाला. आयबीएम १४०१ हा या पिढीतील अतिशय लोकप्रिय व्यावसायिक संगणक ठरला.',
-        'en': 'The Second Generation of Computers, from 1956 to 1963, was ignited by the invention of the transistor at Bell Labs. Replacing fragile vacuum tubes, transistors made computers vastly smaller, faster, cheaper, and more energy-efficient. Magnetic core memory became the standard for internal storage. This generation also witnessed the birth of high-level programming languages like FORTRAN and COBOL, allowing programmers to write code using English-like statements. The IBM 1401 revolutionized business data processing worldwide.'
+        'title_mr': 'दुसरी पिढी: ट्रान्झिस्टर्स व IBM 1401 (1956 – 1963)',
+        'title_en': 'Second Generation: Transistors & The IBM 1401 (1956 – 1963)',
+        'mr': '''दुसऱ्या पिढीचे आगमन म्हणजे तंत्रज्ञान विश्वात आलेले एक सोनेरी वादळ! 
+१९५६ ते १९६३ दरम्यान, नाजूक व्हॅक्यूम ट्यूब्सची जागा घेतली एका जादुई शोधाने—ट्रान्झिस्टर! 
+बेल लॅबोरेटरीजमध्ये विल्यम शॉकली, जॉन बार्डिन आणि वॉल्टर ब्रॅटन यांनी लावलेला हा शोध मानवी इतिहासातील सर्वात क्रांतिकारक ठरला. 
+ट्रान्झिस्टरमुळे संगणकांचा आकार हजारो पटींनी लहान झाला, उष्णता कमी झाली, आणि विश्वसनीयता गगनाला भिडली. 
+याच काळात मॅग्नेटिक कोर मेमरीचा उदय झाला. 
+सर्वात महत्त्वाचे म्हणजे, मानवाला समजणाऱ्या इंग्रजीसारख्या भाषा—जसे की फोरट्रान आणि कोबोल—या पिढीत जन्माला आल्या. 
+आयबीएम १४०१ सारख्या लोकप्रिय प्रणालींनी जगभरातील बँका आणि व्यापाराचा चेहरामोहरा कायमचा बदलून टाकला!''',
+        'en': '''The Second Generation of Computers, spanning 1956 to 1963, marked a triumphant technological revolution. 
+The fragile, power-hungry vacuum tube was decisively replaced by one of the greatest inventions of the twentieth century: the solid-state transistor, born at Bell Laboratories. 
+Almost overnight, computers shrank dramatically in size, while skyrocketing in reliability and processing speed. 
+Magnetic core memories provided robust storage, and for the first time, human beings could speak to machines using high-level programming languages like FORTRAN and COBOL. 
+The iconic IBM 1401 brought computing out of military bunkers and into commercial enterprises worldwide!'''
     },
     3: {
-        'mr': 'तिसऱ्या पिढीचा कालावधी १९६४ ते १९७१ मानला जातो. या पिढीचा मुख्य आधार म्हणजे इंटिग्रेटेड सर्किट अर्थात आयसी चिप. जॅक किल्बी आणि रॉबर्ट नॉईस यांनी एकाच सिलिकॉन चिपवर शेकडो ट्रान्झिस्टर्स आणि सर्किट्स बसवण्याचा शोध लावला. यामुळे संगणकांचा वेग मायक्रोसेकंदांवरून नॅनोसेकंदांवर पोहोचला. याच काळात कीबोर्ड, मॉनिटर आणि पहिल्यांदा ऑपरेटिंग सिस्टीमचा वापर सुरू झाला, ज्यामुळे एकाच वेळी अनेक प्रोग्रॅम्स चालवणे शक्य झाले. आयबीएम सिस्टीम ३६० हे या पिढीचे उत्कृष्ट उदाहरण आहे.',
-        'en': 'The Third Generation of Computers, between 1964 and 1971, was defined by the Integrated Circuit, or silicon microchip. Invented by Jack Kilby and Robert Noyce, ICs packed hundreds of transistors onto tiny semiconductor wafers. Computers became small enough for office desks. For the first time, users interacted through keyboards and monitors instead of punch cards, managed by an Operating System. Iconic milestones include the IBM System 360 and the CDC 6600 supercomputer.'
+        'title_mr': 'तिसरी पिढी: इंटिग्रेटेड सर्किट व अपोलो ११ (1964 – 1971)',
+        'title_en': 'Third Generation: Integrated Circuits & Apollo 11 (1964 – 1971)',
+        'mr': '''तिसऱ्या पिढीने संगणकांना आपल्या रोजच्या जीवनाच्या दाराशी आणून उभे केले! 
+१९६४ ते १९७१ या काळात अवतरली एका छोट्या सिलिकॉन चिपची किमया—इंटिग्रेटेड सर्किट, अर्थात आयसी चिप! 
+जॅक किल्बी आणि रॉबर्ट नॉईस यांनी एका लहानशा सिलिकॉन तुकड्यावर शेकडो ट्रान्झिस्टर्स एकत्र गुंफले. 
+या शोधाने संगणकांचा वेग थेट नॅनोसेकंदांमध्ये नेला. 
+आता पंच कार्ड्सचा काळ संपला होता. 
+कीबोर्ड, स्क्रीन मॉनिटर आणि आधुनिक ऑपरेटिंग सिस्टीम्सच्या साहाय्याने संगणक एकाच वेळी अनेक कामे करू लागले. 
+याच तिसऱ्या पिढीच्या तंत्रज्ञानाने अपोलो ११ मोहिमेत मानवाला चंद्रावर उतरवण्याचे ऐतिहासिक स्वप्न पूर्ण केले!''',
+        'en': '''The Third Generation, spanning 1964 to 1971, ushered in the golden era of miniaturization with the Integrated Circuit. 
+Pioneered by Jack Kilby and Robert Noyce, a single fingernail-sized silicon chip could now harbor hundreds of interconnected transistors. 
+Punch cards were cast aside for interactive keyboards and visual CRT monitors. 
+Sophisticated operating systems brought time-sharing and multi-programming to life. 
+Legendary systems like the IBM System 360 and CDC 6600 defined this era, while NASA's Apollo Guidance Computer safely guided astronauts to set foot upon the Moon!'''
     },
     4: {
-        'mr': 'चौथी पिढी १९७१ पासून आजपर्यंत कार्यरत आहे. या पिढीची ओळख म्हणजे मायक्रोप्रोसेसर चिप. व्हीएलएसआय आणि युएलएसआय तंत्रज्ञानाद्वारे संपूर्ण सीपीयू एकाच लहान चिपवर बसवण्यात आला. १९७१ मध्ये इंटेल ४००४ हा पहिला मायक्रोप्रोसेसर आला. या क्रांतीमुळे वैयक्तिक संगणक म्हणजेच पीसी प्रत्येकाच्या घरात पोहोचले. ॲपल मॅकिंतॉश, आयबीएम पीसी आणि पुढे लॅपटॉप, स्मार्टफोन तसेच इंटरनेटचा महाविस्फोट याच पिढीत झाला. गिगाबाईट्स मेमरी, पायथॉन आणि जावा सारख्या आधुनिक भाषा ही या पिढीची वैशिष्ट्ये आहेत.',
-        'en': 'The Fourth Generation, from 1971 to the present day, brought computing to every home through the microprocessor. Using Very Large Scale Integration, millions and later billions of transistors were etched onto a single silicon chip, starting with the Intel 4004. This sparked the personal computer revolution, championed by Apple, IBM, Microsoft, and the open internet. Today fourth-generation machines include multi-core laptops, smartphones, and distributed cloud servers.'
+        'title_mr': 'चौथी पिढी: मायक्रोप्रोसेसर व PC क्रांती (1971 – आज)',
+        'title_en': 'Fourth Generation: The Microprocessor & PC Revolution (1971 – Present)',
+        'mr': '''चौथ्या पिढीने तंत्रज्ञानाला केवळ मोठ्या कार्यालयांपुरते मर्यादित न ठेवता, ते प्रत्येकाच्या घराघरात आणि हातातील तळहातावर पोहोचवले! 
+१९७१ मध्ये इंटेल ४००४ या पहिल्या मायक्रोप्रोसेसरच्या जन्मासह ही क्रांती सुरू झाली. 
+संपूर्ण सीपीयू एका सूक्ष्म सिलिकॉन चिपवर सामावला. 
+व्हीएलएसआय तंत्रज्ञानामुळे लाखो, आणि पुढे अब्जो ट्रान्झिस्टर्स एका चिपवर बसू लागले. 
+यामधूनच निर्माण झाले ऍपलचे पहिले संगणक, आयबीएम पीसी, आणि आजचे शक्तिशाली लॅपटॉप्स व स्मार्टफोन्स! 
+आंतरजालाचे महाजाळे म्हणजेच इंटरनेट, ग्राफिकल युझर इंटरफेस, आणि माऊसचा स्पर्श... या सर्व गोष्टींनी मानवी जीवनाची व्याख्याच बदलून टाकली!''',
+        'en': '''The Fourth Generation, from 1971 to the modern day, placed unimaginable computing power into the hands of billions. 
+It was sparked by the arrival of the Intel 4004—the world's first single-chip microprocessor. 
+Through Very Large Scale Integration, entire central processing units with millions and billions of microscopic transistors were etched into silicon. 
+This ignited the Personal Computer revolution, spearheaded by Apple, Microsoft, and IBM. 
+Coupled with graphical user interfaces, optical fiber networks, and the global World Wide Web, computing transformed communication, commerce, and human civilization forever!'''
     },
     5: {
-        'mr': 'पाचवी पिढी ही वर्तमान आणि भविष्याची पिढी आहे. ही पिढी केवळ आज्ञा पाळण्याऐवजी स्वतः शिकणाऱ्या कृत्रिम बुद्धिमत्ता अर्थात एआय आणि समांतर प्रक्रियेवर आधारित आहे. यामध्ये नॅचरल लँग्वेज प्रोसेसिंग, डीप लर्निंग मॉडेल्स, व्हॉईस असिस्टंट्स आणि रोबोटिक्सचा समावेश आहे. भारतातील परम अनंत सारखे महासंगणक आणि भविष्यातील क्वांटम कॉम्प्युटिंग या पिढीला अभूतपूर्व गती देत आहेत. संगणक आता विचार करू शकतो, भाषा अनुवादित करू शकतो आणि माणसाप्रमाणे संवाद साधू शकतो.',
-        'en': 'The Fifth Generation represents the present and future of computing, driven by Artificial Intelligence and Quantum Technologies. Moving beyond rigid programming, fifth-gen systems utilize neural networks, massive parallel GPU clusters, and Large Language Models that learn, reason, and understand natural human speech. Breakthroughs like ChatGPT, AlphaFold, and India PARAM supercomputers lead the charge, alongside quantum computing solving complex scientific challenges.'
+        'title_mr': 'पाचवी पिढी: AI व क्वांटम महासंगणक (वर्तमान व भविष्य)',
+        'title_en': 'Fifth Generation: Artificial Intelligence & Quantum Frontiers (Present & Future)',
+        'mr': '''आणि आता आपण उभे आहोत एका अद्भूत भविष्याच्या उंबरठ्यावर—पाचवी पिढी! 
+ही पिढी केवळ दिलेल्या आज्ञांचे पालन करणारी नाही, तर स्वतः शिकणारी, तर्क करणारी आणि सृजनशील विचार करणारी कृत्रिम बुद्धिमत्ता आहे! 
+अथांग न्यूरल नेटवर्क्स, लार्ज लँग्वेज मॉडेल्स, रोबोटिक्स आणि नॅचरल लँग्वेज प्रोसेसिंगमुळे संगणक आज माणसाप्रमाणे भाषा बोलू आणि समजून घेऊ शकतो. 
+भारताचे परम सिद्धी आणि परम अनंत सारखे महासंगणक, तसेच क्वांटम कॉम्प्युटिंगची अफाट क्षमता, अशक्य भासणारी वैज्ञानिक आव्हाने लीलया सोडवत आहेत. 
+हा फक्त एक प्रवास नाही, तर मानवी बुद्धिमत्ता आणि कृत्रिम बुद्धिमत्तेचा एक अभूतपूर्व संगम आहे!''',
+        'en': '''Welcome to the Fifth Generation—the frontier of Artificial Intelligence and Quantum Computing. 
+Machines are no longer merely executing rigid instructions; they learn, infer, reason, and create alongside humanity. 
+Powered by massive neural network architectures, high-performance GPU clusters, and Large Language Models, artificial intelligence now understands natural human speech, generates code, and uncovers scientific breakthroughs. 
+From India's flagship PARAM supercomputers to subatomic quantum qubits tackling the deepest mysteries of physics, the Fifth Generation redefines what is possible in the universe of computation!'''
     }
 }
 
-os.makedirs('assets/audio', exist_ok=True)
-
-for gen, text_dict in scripts.items():
-    print(f'Generating audio for Gen {gen} (Marathi)...')
-    tts_mr = gTTS(text_dict['mr'], lang='mr')
-    tts_mr.save(f'assets/audio/gen{gen}_mr.mp3')
-    time.sleep(1)
+def generate_voiceovers():
+    os.makedirs('assets/audio', exist_ok=True)
     
-    print(f'Generating audio for Gen {gen} (English)...')
-    tts_en = gTTS(text_dict['en'], lang='en')
-    tts_en.save(f'assets/audio/gen{gen}_en.mp3')
-    time.sleep(1)
+    # High-fidelity Human Neural Voices:
+    # mr-IN-ManoharNeural: Warm, expressive, natural documentary tone in Marathi
+    # en-IN-NeerjaNeural: Natural, articulate, warm narrative tone in English
+    VOICE_MR = "mr-IN-ManoharNeural"
+    VOICE_EN = "en-IN-NeerjaNeural"
 
-print('All 10 audio narration files generated successfully!')
+    for gen, item in SCRIPTS.items():
+        print(f"\n==========================================")
+        print(f"🎙️ Generating Human Neural Voice for Gen {gen}...")
+        print(f"==========================================")
+
+        # Marathi Audio & VTT
+        mr_mp3 = f"assets/audio/gen{gen}_mr.mp3"
+        mr_vtt = f"assets/audio/gen{gen}_mr.vtt"
+        print(f"-> Marathi ({VOICE_MR}): {mr_mp3}")
+        cmd_mr = [
+            "uvx", "edge-tts",
+            "--voice", VOICE_MR,
+            "--text", item['mr'],
+            "--write-media", mr_mp3,
+            "--write-subtitles", mr_vtt
+        ]
+        subprocess.run(cmd_mr, check=True)
+
+        # English Audio & VTT
+        en_mp3 = f"assets/audio/gen{gen}_en.mp3"
+        en_vtt = f"assets/audio/gen{gen}_en.vtt"
+        print(f"-> English ({VOICE_EN}): {en_mp3}")
+        cmd_en = [
+            "uvx", "edge-tts",
+            "--voice", VOICE_EN,
+            "--text", item['en'],
+            "--write-media", en_mp3,
+            "--write-subtitles", en_vtt
+        ]
+        subprocess.run(cmd_en, check=True)
+
+        print(f"✅ Gen {gen} Voiceovers & Synced Subtitles Ready!")
+
+    print("\n🎉 All 10 Emotional Neural Voiceovers and Subtitles generated successfully!")
+
+if __name__ == "__main__":
+    generate_voiceovers()
