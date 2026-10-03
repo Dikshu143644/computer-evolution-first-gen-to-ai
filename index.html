@@ -333,6 +333,26 @@
           </div>
         </div>
 
+        <!-- Audio & Subtitle Controls Bar -->
+        <div class="video-cinema-toolbar">
+          <div class="video-toolbar-group">
+            <span class="toolbar-label">🎙️ ऑडिओ भाषा (Voiceover):</span>
+            <button class="audio-track-btn active" id="btnAudioMr" onclick="app.setAudioLanguage('mr')">
+              🗣️ मराठी आवाज
+            </button>
+            <button class="audio-track-btn" id="btnAudioEn" onclick="app.setAudioLanguage('en')">
+              🎧 English Voiceover
+            </button>
+          </div>
+
+          <div class="video-toolbar-group">
+            <span class="toolbar-label">💬 उपशीर्षके (Closed Captions):</span>
+            <button class="cc-track-btn active" id="btnCcMr" onclick="app.setSubtitleLanguage('mr')">मराठी CC</button>
+            <button class="cc-track-btn" id="btnCcEn" onclick="app.setSubtitleLanguage('en')">English CC</button>
+            <button class="cc-track-btn" id="btnCcOff" onclick="app.setSubtitleLanguage('off')">बंद (Off)</button>
+          </div>
+        </div>
+
         <!-- Cinema Screen Split Layout -->
         <div class="video-screen-layout">
           <div class="video-player-frame">
@@ -340,8 +360,19 @@
               <source id="genVideoSource" src="assets/videos/gen1_video.mp4" type="video/mp4">
               तुमचा ब्राउझर व्हिडिओ टॅगला सपोर्ट करत नाही.
             </video>
+            
+            <!-- Live Audio Stream Player for instant language switching -->
+            <audio id="generationAudioTrack" preload="auto">
+              <source id="genAudioSource" src="assets/audio/gen1_mr.mp3" type="audio/mpeg">
+            </audio>
+
+            <!-- Dynamic On-Screen Closed Caption Bar -->
+            <div class="video-live-cc-banner" id="videoLiveCcBanner">
+              <span id="videoLiveCcText">💬 CC: संगणक उत्क्रांतीच्या पहिल्या पिढीत आपले स्वागत आहे.</span>
+            </div>
+
             <div class="video-live-badge">
-              <span class="pulse-dot"></span> HD REEL PLAYBACK
+              <span class="pulse-dot"></span> <span id="videoQualityBadge">HD 720p • ऑडिओ सह</span>
             </div>
           </div>
 
@@ -352,6 +383,18 @@
               <p class="telemetry-summary" id="telemetrySummary">
                 इतिहासामध्ये पहिल्यांदाच इलेक्ट्रॉनिक पद्धतीने हजारो पटींनी वेगवान गणना करणे शक्य झाले. १८,०००+ काचेच्या व्हॅक्यूम ट्यूब्स आणि ३० टन वजनाचा ENIAC हा आधुनिक संगणकाचा आद्य जनक होता!
               </p>
+
+              <!-- Scene Chapter Quick Jumpers -->
+              <div class="video-scenes-nav">
+                <span style="font-size: 0.8rem; font-weight: 700; color: var(--text-muted); text-transform: uppercase;">प्रकरणे (Chapters):</span>
+                <div class="scene-jump-pills">
+                  <button class="scene-jump-btn" onclick="app.seekToScene(0)">०१. शोध</button>
+                  <button class="scene-jump-btn" onclick="app.seekToScene(1)">०२. रचना</button>
+                  <button class="scene-jump-btn" onclick="app.seekToScene(2)">०३. यंत्रे</button>
+                  <button class="scene-jump-btn" onclick="app.seekToScene(3)">०४. वेग</button>
+                  <button class="scene-jump-btn" onclick="app.seekToScene(4)">०५. वारसा</button>
+                </div>
+              </div>
 
               <div class="telemetry-specs-grid">
                 <div class="telemetry-spec-item">

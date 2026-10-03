@@ -556,6 +556,47 @@ class App {
 
   initVideoPlayer() {
     this.currentVideoGen = 1;
+    this.currentAudioLang = 'mr';
+    this.currentCcLang = 'mr';
+
+    this.videoScenesData = {
+      1: [
+        { title: "शोध व पार्श्वभूमी", mr: "संगणक उत्क्रांतीच्या पहिल्या पिढीत आपले स्वागत आहे. कालावधी १९४० ते १९५६.", en: "Welcome to the First Generation of Computers, spanning from 1940 to 1956." },
+        { title: "हार्डवेअर रचना", mr: "या पिढीतील संगणकांमध्ये मुख्य घटक व्हॅक्यूम ट्यूब्स आणि मॅग्नेटिक ड्रम होते.", en: "The defining core technology was the vacuum tube and magnetic memory drum." },
+        { title: "ऐतिहासिक यंत्रे", mr: "१९४६ मधील एनियाक मध्ये १८ हजार व्हॅक्यूम ट्यूब्स आणि ३० टन वजन होते.", en: "ENIAC in 1946 contained 18,000 vacuum tubes and weighed over 30 tons." },
+        { title: "वेग व प्रोग्रॅमिंग", mr: "हे संगणक केवळ बायनरी मशीन लँग्वेज समजायचे आणि सेकंदाला ५ हजार गणिते करत.", en: "Programmed strictly in binary machine language at 5,000 ops per second." },
+        { title: "वारसा व प्रभाव", mr: "उष्णता व मर्यादा असल्या तरी या पिढीने आधुनिक इलेक्ट्रॉनिक संगणनाचा पाया घातला.", en: "Despite challenges, first-generation systems founded modern computing." }
+      ],
+      2: [
+        { title: "शोध व पार्श्वभूमी", mr: "दुसऱ्या पिढीचा कालावधी १९५६ ते १९६३. ट्रान्झिस्टरने व्हॅक्यूम ट्यूब्सची जागा घेतली.", en: "The Second Generation (1956-1963) was ignited by the transistor invention." },
+        { title: "हार्डवेअर रचना", mr: "ट्रान्झिस्टरमुळे संगणक लहान, वेगवान झाले आणि मॅग्नेटिक कोर मेमरी आली.", en: "Transistors made computers compact, faster, with magnetic core memory." },
+        { title: "ऐतिहासिक यंत्रे", mr: "पहिल्यांदा फोरट्रान आणि कोबोल सारख्या उच्च-स्तरीय भाषांचा उगम झाला.", en: "High-level languages like FORTRAN and COBOL revolutionized programming." },
+        { title: "वेग व प्रोग्रॅमिंग", mr: "आयबीएम १४०१ हा या पिढीतील अतिशय लोकप्रिय व्यावसायिक संगणक ठरला.", en: "The IBM 1401 modernized business data processing worldwide." },
+        { title: "वारसा व प्रभाव", mr: "दुसऱ्या पिढीने सॉफ्टवेअर उद्योगाची आणि डेटा प्रोसेसिंगची खरी सुरुवात केली.", en: "Second-gen systems laid the bedrock for enterprise computing and software." }
+      ],
+      3: [
+        { title: "शोध व पार्श्वभूमी", mr: "तिसऱ्या पिढीचा कालावधी १९६४ ते १९७१. मुख्य आधार म्हणजे आयसी चिप.", en: "The Third Generation (1964-1971) was defined by the Integrated Circuit." },
+        { title: "हार्डवेअर रचना", mr: "याच काळात कीबोर्ड, मॉनिटर आणि पहिल्यांदा ऑपरेटिंग सिस्टीम आली.", en: "Monitors, keyboards, and Operating Systems replaced punch cards." },
+        { title: "ऐतिहासिक यंत्रे", mr: "आयबीएम सिस्टीम ३६० आणि अपोलो ११ यानात आयसी चिप्सचा वापर झाला.", en: "IBM System/360 and Apollo 11 computers relied on integrated circuits." },
+        { title: "वेग व प्रोग्रॅमिंग", mr: "संगणकांचा वेग नॅनोसेकंदांवर पोहोचला आणि विश्वासार्हता प्रचंड वाढली.", en: "Clock speeds accelerated into nanoseconds with high hardware reliability." },
+        { title: "वारसा व प्रभाव", mr: "आयसी चिपमुळे पुढील पिढीतील मायक्रोप्रोसेसर क्रांतीचा मार्ग सुकर झाला.", en: "The silicon microchip paved the road for personal microprocessors." }
+      ],
+      4: [
+        { title: "शोध व पार्श्वभूमी", mr: "चौथी पिढी १९७१ पासून आजपर्यंत. ओळख म्हणजे मायक्रोप्रोसेसर चिप.", en: "Fourth Generation (1971-Present) brought computing home via microprocessors." },
+        { title: "हार्डवेअर रचना", mr: "ॲपल, आयबीएम पीसी, लॅपटॉप आणि पुढे स्मार्टफोन्स प्रत्येकाच्या हाती आले.", en: "Apple, IBM PCs, laptops, and smartphones reached billions of users." },
+        { title: "ऐतिहासिक यंत्रे", mr: "याच पिढीत इंटरनेट, वेब आणि स्मार्टफोन क्रांतीने संपूर्ण जग जोडले.", en: "The internet, World Wide Web, and mobile networks connected humanity." },
+        { title: "वेग व प्रोग्रॅमिंग", mr: "गिगाबाईट्स मेमरी, एसएसडी स्टोरेज आणि पायथॉन सारख्या आधुनिक भाषा आल्या.", en: "Gigabyte RAM, NVMe SSDs, and languages like Python and Java flourish." },
+        { title: "वारसा व प्रभाव", mr: "चौथ्या पिढीने डिजिटल युगाचा पाया रचून पुढील AI युगासाठी मार्ग तयार केला.", en: "Fourth gen transformed society and generated the data fuel for modern AI." }
+      ],
+      5: [
+        { title: "शोध व पार्श्वभूमी", mr: "पाचवी पिढी वर्तमान आणि भविष्याची आहे. ही पिढी कृत्रिम बुद्धिमत्ता आधारित आहे.", en: "Fifth Generation is driven by Artificial Intelligence and Neural Networks." },
+        { title: "हार्डवेअर रचना", mr: "हजारो जीपीयू कोर आणि क्लाउड डेटा सेंटर द्वारे समांतर प्रक्रिया चालते.", en: "Massive GPU clusters and cloud datacenters enable parallel intelligence." },
+        { title: "ऐतिहासिक यंत्रे", mr: "भारतातील परम महासंगणक वैज्ञानिक संशोधनात अग्रगण्य योगदान देत आहेत.", en: "India's PARAM supercomputers power mission-critical scientific discovery." },
+        { title: "वेग व प्रोग्रॅमिंग", mr: "भविष्यातील क्वांटम कॉम्प्युटिंग क्यूबिट्सद्वारे अशक्य गणिते सेकंदात सोडवेल.", en: "Quantum computing harnesses qubits to solve impossible complex equations." },
+        { title: "वारसा व प्रभाव", mr: "व्हॅक्यूम ट्यूबपासून सुरू झालेला हा प्रवास आज मानवाच्या बुद्धिमत्तेशी बरोबरी करत आहे.", en: "From vacuum tubes to neural AI, computing shapes the future of humanity." }
+      ]
+    };
+
     this.videoMetadata = [
       {
         gen: 1,
@@ -630,20 +671,123 @@ class App {
     ];
 
     const player = document.getElementById('generationVideoPlayer');
+    const audioTrack = document.getElementById('generationAudioTrack');
+
     if (player) {
       player.addEventListener('play', () => {
         const icon = document.getElementById('playBtnIcon');
         const text = document.getElementById('playBtnText');
         if (icon) icon.textContent = '⏸️';
         if (text) text.textContent = 'व्हिडिओ थांबवा';
+        
+        if (audioTrack && this.currentAudioLang === 'en') {
+          audioTrack.currentTime = player.currentTime;
+          audioTrack.play().catch(() => {});
+        }
       });
+
       player.addEventListener('pause', () => {
         const icon = document.getElementById('playBtnIcon');
         const text = document.getElementById('playBtnText');
         if (icon) icon.textContent = '▶️';
         if (text) text.textContent = 'व्हिडिओ प्ले करा';
+
+        if (audioTrack) {
+          audioTrack.pause();
+        }
+      });
+
+      // Synchronize Live Subtitles (CC) & Chapter Markers
+      player.addEventListener('timeupdate', () => {
+        this.updateLiveCaptions();
       });
     }
+  }
+
+  setAudioLanguage(lang) {
+    this.currentAudioLang = lang;
+    const btnMr = document.getElementById('btnAudioMr');
+    const btnEn = document.getElementById('btnAudioEn');
+    const player = document.getElementById('generationVideoPlayer');
+    const audioTrack = document.getElementById('generationAudioTrack');
+    const badge = document.getElementById('videoQualityBadge');
+
+    if (btnMr) btnMr.classList.toggle('active', lang === 'mr');
+    if (btnEn) btnEn.classList.toggle('active', lang === 'en');
+
+    if (lang === 'mr') {
+      // Native Marathi video audio track
+      if (audioTrack) audioTrack.pause();
+      if (player) {
+        player.muted = false;
+        player.volume = 1.0;
+      }
+      if (badge) badge.textContent = 'HD 720p • मराठी ऑडिओ';
+    } else {
+      // English Voiceover Audio Stream
+      if (player) {
+        player.muted = true; // mute native video audio so English stream plays cleanly
+      }
+      if (audioTrack) {
+        audioTrack.src = `assets/audio/gen${this.currentVideoGen}_en.mp3`;
+        audioTrack.load();
+        if (player && !player.paused) {
+          audioTrack.currentTime = player.currentTime;
+          audioTrack.play().catch(() => {});
+        }
+      }
+      if (badge) badge.textContent = 'HD 720p • English Voiceover';
+    }
+  }
+
+  setSubtitleLanguage(lang) {
+    this.currentCcLang = lang;
+    const btnMr = document.getElementById('btnCcMr');
+    const btnEn = document.getElementById('btnCcEn');
+    const btnOff = document.getElementById('btnCcOff');
+    const ccBanner = document.getElementById('videoLiveCcBanner');
+
+    if (btnMr) btnMr.classList.toggle('active', lang === 'mr');
+    if (btnEn) btnEn.classList.toggle('active', lang === 'en');
+    if (btnOff) btnOff.classList.toggle('active', lang === 'off');
+
+    if (lang === 'off') {
+      if (ccBanner) ccBanner.classList.add('hidden');
+    } else {
+      if (ccBanner) ccBanner.classList.remove('hidden');
+      this.updateLiveCaptions();
+    }
+  }
+
+  seekToScene(sceneIdx) {
+    const player = document.getElementById('generationVideoPlayer');
+    const audioTrack = document.getElementById('generationAudioTrack');
+    if (!player) return;
+
+    const totalDur = player.duration || 45;
+    const targetTime = (totalDur / 5) * sceneIdx;
+    player.currentTime = targetTime;
+
+    if (audioTrack && this.currentAudioLang === 'en') {
+      audioTrack.currentTime = targetTime;
+    }
+    this.updateLiveCaptions();
+  }
+
+  updateLiveCaptions() {
+    if (this.currentCcLang === 'off') return;
+    const player = document.getElementById('generationVideoPlayer');
+    const ccText = document.getElementById('videoLiveCcText');
+    if (!player || !ccText) return;
+
+    const scenes = this.videoScenesData[this.currentVideoGen] || this.videoScenesData[1];
+    const totalDur = player.duration || 45;
+    const current = player.currentTime;
+    const sceneIdx = Math.min(Math.floor((current / totalDur) * 5), 4);
+    const scene = scenes[sceneIdx] || scenes[0];
+
+    const label = this.currentCcLang === 'mr' ? `💬 CC [मराठी]: ${scene.mr}` : `💬 CC [English]: ${scene.en}`;
+    ccText.textContent = label;
   }
 
   playGenerationVideo(genNum, autoPlay = true) {
@@ -681,19 +825,35 @@ class App {
     if (langEl) langEl.textContent = meta.lang;
     if (exEl) exEl.textContent = meta.examples;
 
-    // Update Video Source
+    // Update Video & Audio Sources
     const player = document.getElementById('generationVideoPlayer');
     const source = document.getElementById('genVideoSource');
+    const audioTrack = document.getElementById('generationAudioTrack');
+    const audioSource = document.getElementById('genAudioSource');
+
     if (player && source) {
       player.poster = meta.poster;
       source.src = meta.videoSrc;
       player.load();
+
+      if (audioTrack && audioSource) {
+        audioSource.src = `assets/audio/gen${genNum}_${this.currentAudioLang}.mp3`;
+        audioTrack.load();
+      }
+
       if (autoPlay) {
-        player.play().catch(e => {
+        player.play().then(() => {
+          if (this.currentAudioLang === 'en' && audioTrack) {
+            audioTrack.currentTime = 0;
+            audioTrack.play().catch(() => {});
+          }
+        }).catch(e => {
           console.log('Video autoplay prevented or handled:', e);
         });
       }
     }
+
+    this.updateLiveCaptions();
 
     // Smooth scroll to video section
     const videoSection = document.getElementById('video-hub-section');
@@ -709,11 +869,20 @@ class App {
 
   toggleVideoPlay() {
     const player = document.getElementById('generationVideoPlayer');
+    const audioTrack = document.getElementById('generationAudioTrack');
     if (!player) return;
+
     if (player.paused) {
       player.play();
+      if (audioTrack && this.currentAudioLang === 'en') {
+        audioTrack.currentTime = player.currentTime;
+        audioTrack.play().catch(() => {});
+      }
     } else {
       player.pause();
+      if (audioTrack) {
+        audioTrack.pause();
+      }
     }
   }
 }
