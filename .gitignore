@@ -17,3 +17,11 @@ Desktop.ini
 # Temporary logs & tests
 *.log
 test.mp4
+
+# Large render assets (>100MB GitHub limit) — served via CDN in production
+assets/videos/gen1_video.mp4
+assets/videos/gen1_clips/
+
+# Render pipeline scripts (developer tooling only)
+scripts/render_all_30_clips_and_master_video.py
+scripts/render_gen1_5min_prompt_video.py
