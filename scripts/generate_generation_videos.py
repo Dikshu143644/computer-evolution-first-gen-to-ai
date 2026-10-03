@@ -23,7 +23,7 @@ def get_font(size, bold=False):
                 pass
     return ImageFont.load_default()
 
-def create_generation_video(config, output_path, width=1280, height=720, fps=25, duration_sec=6):
+def create_generation_video(config, output_path, width=1280, height=720, fps=20, duration_sec=4):
     total_frames = fps * duration_sec
     base_img_path = config["image_path"]
     
