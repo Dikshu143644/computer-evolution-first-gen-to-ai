@@ -18,8 +18,10 @@ import argparse
 import requests
 import json
 
-# Documentary Narration Scripts for all 5 Generations
-from generate_audio_narration import SCRIPTS
+try:
+    from generate_audio_narration import SCRIPTS
+except ImportError:
+    from scripts.generate_audio_narration import SCRIPTS
 
 ELEVENLABS_API_URL = "https://api.elevenlabs.io/v1/text-to-speech"
 
