@@ -1,0 +1,711 @@
+<!DOCTYPE html>
+<html lang="mr" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>संगणक उत्क्रांती — Computer Evolution: From First Generation to Modern AI</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Geist+Mono:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700;800&family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- ==========================================================================
+       Stitch Floating Glass Top Navigation Bar
+       ========================================================================== -->
+  <nav class="top-nav" aria-label="मुख्य मार्गदर्शक पट्टी">
+    <div class="nav-container">
+      <a href="#hero" class="nav-brand">
+        <div class="brand-icon">⚡</div>
+        <div class="brand-text">
+          <span class="brand-title marathi-title">संगणक उत्क्रांती</span>
+          <span class="brand-subtitle">Computer Evolution • 1st Gen to AI</span>
+        </div>
+      </a>
+
+      <ul class="nav-links">
+        <li class="nav-item"><a href="#chapters-section">📚 १८ अध्याय</a></li>
+        <li class="nav-item"><a href="#timeline-section">⏳ टाइमलाइन</a></li>
+        <li class="nav-item"><a href="#generations-section">⚡ ५ पिढ्या</a></li>
+        <li class="nav-item"><a href="#video-hub-section">🎬 व्हिडिओ रील्स</a></li>
+        <li class="nav-item"><a href="#india-section">🇮🇳 भारताचा इतिहास</a></li>
+        <li class="nav-item"><a href="#hardware-section">🧩 हार्डवेअर</a></li>
+        <li class="nav-item"><a href="#quiz-section">🏆 प्रश्नमंजुषा</a></li>
+        <li class="nav-item"><a href="#teacher-section">🏫 उपक्रम</a></li>
+      </ul>
+
+      <div class="nav-controls" style="display: flex; align-items: center; gap: 0.75rem;">
+        <!-- Grade Filter Level Selector -->
+        <div class="grade-selector" title="इयत्ता निवडा (Choose Grade Level)">
+          <button class="grade-btn" data-grade="level1" title="इयत्ता १ ली ते ४ थी">🟢 १-४</button>
+          <button class="grade-btn active" data-grade="level2" title="इयत्ता ५ वी ते ७ वी">🟡 ५-७</button>
+          <button class="grade-btn" data-grade="level3" title="इयत्ता ८ वी ते १० वी">🟣 ८-१०</button>
+        </div>
+
+        <!-- 16:9 Presentation Deck Launcher -->
+        <button class="btn-primary" id="btnStartPresentation" title="फुलस्क्रीन १६:९ प्रेझेंटेशन मोड">
+          <span>🖥️</span>
+          <span>स्लाईड्स</span>
+        </button>
+
+        <!-- Sources Modal Trigger -->
+        <button class="btn-icon" id="btnNavSources" title="संदर्भ व अभिलेखागार (Sources)">
+          📖
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ==========================================================================
+       Hero Section — Bento Asymmetric Layout (Stitch Design System)
+       ========================================================================== -->
+  <header class="hero-section" id="hero">
+    <div class="hero-bento-grid">
+      
+      <!-- Primary 8-Column Bento Card -->
+      <div class="bento-card-main">
+        <div>
+          <div class="hero-status-chip">
+            <span class="hero-status-dot"></span>
+            <span>मराठी-प्रथम परस्परसंवादी शिक्षण पोर्टल • Std 1 to 10</span>
+          </div>
+
+          <div class="hero-title-group">
+            <h1 class="hero-headline marathi-title">
+              Computer ची सुरुवात <br>
+              <span class="hero-highlight-gradient">कुठून झाली?</span>
+            </h1>
+            <p class="hero-subtext">
+              एका साध्या लाकडी मोजणी साधनाने (अबॅकस) सुरू झालेला प्रवास... ते आजच्या तुमच्या हातातील स्मार्टफोन, डेटा सेंटर्स आणि कृत्रिम बुद्धिमत्तेपर्यंत (AI)!
+            </p>
+          </div>
+
+          <!-- Dynamic Grade Banner Indicator -->
+          <div style="background: #eef2ff; border: 1px solid #c7d2fe; border-left: 4px solid var(--primary); border-radius: 12px; padding: 0.85rem 1.25rem; font-size: 0.95rem; color: #1e1b4b; margin-bottom: 1.5rem;" id="gradeBannerText">
+            🟡 <strong>सध्याची पातळी: इयत्ता ५ वी ते ७ वी (माध्यमिक)</strong> — मूलभूत संकल्पना, तुलना, कालानुक्रम आणि सोपी तांत्रिक माहिती.
+          </div>
+
+          <div class="hero-actions-row">
+            <button class="btn-cta" id="btnHeroLearn">
+              <span>🚀 शिकायला सुरुवात करा</span>
+            </button>
+            <button class="btn-primary" onclick="window.app.deck.openDeck(0, 0)">
+              <span>🖥️ Canva 16:9 स्लाईड डेक</span>
+            </button>
+            <button class="btn-secondary" id="btnPrintSummary" title="शाळेसाठी सारांश प्रिंट करा">
+              <span>🖨️ प्रिंट सारांश</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Metrics Strip inside Main Bento -->
+        <div class="hero-metrics-grid">
+          <div class="metric-item">
+            <span class="metric-val">१८</span>
+            <span class="metric-label">सविस्तर अध्याय</span>
+          </div>
+          <div class="metric-item">
+            <span class="metric-val">५</span>
+            <span class="metric-label">हार्डवेअर पिढ्या</span>
+          </div>
+          <div class="metric-item">
+            <span class="metric-val">५०००+</span>
+            <span class="metric-label">वर्षांचा इतिहास</span>
+          </div>
+          <div class="metric-item">
+            <span class="metric-val">१००%</span>
+            <span class="metric-label">सत्यापित पुरावे</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Secondary Bento Column Stack -->
+      <div class="hero-bento-stack">
+        <!-- Companion Bento: Educational Philosophy Quote with Museum Image -->
+        <div class="bento-card-interactive" style="padding: 0; overflow: hidden; position: relative;">
+          <div style="position: relative; width: 100%; height: 210px; overflow: hidden;">
+            <img src="assets/images/hero_museum.jpg" alt="Evolution of Computing Museum Exhibition" style="width: 100%; height: 100%; object-fit: cover;">
+            <div style="position: absolute; inset: 0; background: linear-gradient(180deg, rgba(15, 23, 42, 0.05) 0%, rgba(15, 23, 42, 0.65) 100%);"></div>
+            <div style="position: absolute; top: 1rem; left: 1rem; right: 1rem; display: flex; justify-content: space-between; align-items: center;">
+              <span class="bento-tag" style="background: rgba(15, 23, 42, 0.78); padding: 0.3rem 0.75rem; border-radius: 8px; backdrop-filter: blur(8px); color: #ffffff; font-weight: 600;">🏛️ प्रत्यक्ष संग्रहालय प्रदर्शन</span>
+              <span style="font-family: var(--font-mono); font-size: 0.75rem; color: #f1f5f9; background: rgba(15, 23, 42, 0.78); padding: 0.3rem 0.6rem; border-radius: 6px;">From Gears to Silicon</span>
+            </div>
+          </div>
+
+          <div style="padding: 1.5rem 1.75rem;">
+            <h3 class="marathi-title" style="font-size: 1.4rem; margin-bottom: 0.75rem; color: var(--text-primary);">
+              संगणकाची खरी गोष्ट काय आहे?
+            </h3>
+
+            <div class="bento-quote-text" style="font-size: 0.98rem; margin-bottom: 1.25rem;">
+              "संगणकाची उत्क्रांती ही केवळ मशिन्स वेगवान होण्याची गोष्ट नाही. ती कम्प्युटिंग अधिकाधिक <strong>लहान, स्वस्त, विश्वासार्ह आणि सर्वांसाठी सुलभ</strong> होण्याची गोष्ट आहे!"
+            </div>
+
+            <!-- IPOS Pipeline Strip -->
+            <div class="bento-pipeline-strip">
+              <div class="pipeline-node">
+                <span class="pipeline-node-icon">📥</span>
+                <span class="pipeline-node-label">INPUT</span>
+              </div>
+              <span class="pipeline-arrow">➔</span>
+              <div class="pipeline-node">
+                <span class="pipeline-node-icon">⚙️</span>
+                <span class="pipeline-node-label">PROCESS</span>
+              </div>
+              <span class="pipeline-arrow">➔</span>
+              <div class="pipeline-node">
+                <span class="pipeline-node-icon">📤</span>
+                <span class="pipeline-node-label">OUTPUT</span>
+              </div>
+              <span class="pipeline-arrow">➔</span>
+              <div class="pipeline-node">
+                <span class="pipeline-node-icon">💾</span>
+                <span class="pipeline-node-label">STORAGE</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Companion Bento: India Tech Pride with Photo -->
+        <div class="bento-card-interactive" style="border-top: 4px solid var(--accent-cta); padding: 1.5rem 2rem; display: flex; gap: 1.5rem; align-items: center;">
+          <img src="assets/images/india_tifrac_param.jpg" alt="India Computing TIFRAC to PARAM" style="width: 120px; height: 100px; object-fit: cover; border-radius: 14px; border: 1px solid var(--border-card); flex-shrink: 0; box-shadow: var(--shadow-card);">
+          <div>
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.4rem;">
+              <span style="font-size: 1.3rem;">🇮🇳</span>
+              <span style="font-family: var(--font-mono); font-size: 0.75rem; color: #c2410c; background: #fff7ed; border: 1px solid #fed7aa; padding: 0.2rem 0.6rem; border-radius: 6px; font-weight: 700;">
+                स्वावलंबी भारत
+              </span>
+            </div>
+            <h4 style="font-size: 1.2rem; font-weight: 700; color: var(--text-primary); margin-bottom: 0.35rem;">
+              TIFRAC (1954) ते PARAM 8000 (1991)
+            </h4>
+            <p style="font-size: 0.88rem; color: var(--text-secondary); line-height: 1.5;">
+              TIFR मुंबईचा पहिला स्वदेशी डिजिटल संगणक व पुण्यात तयार झालेला महासंगणक!
+            </p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </header>
+
+  <!-- ==========================================================================
+       Curriculum Chapters Section — 18 Bento Grid Cards
+       ========================================================================== -->
+  <section class="section-wrapper" id="chapters-section">
+    <div class="section-header-block">
+      <div>
+        <div class="section-label-mono">
+          <span>●</span>
+          <span>अभ्यासक्रम • संपूर्ण १८ अध्याय</span>
+        </div>
+        <h2 class="section-title-large marathi-title">कम्प्युटरच्या इतिहासातील १८ सोनेरी टप्पे</h2>
+        <p class="section-lead">
+          कुतूहल आणि प्रश्नांपासून सुरू होऊन आधुनिक AI पर्यंतचा मानवी बुद्धिमत्तेचा प्रवास. कोणत्याही कार्डवर क्लिक करून स्लाईड्स सुरू करा!
+        </p>
+      </div>
+
+      <!-- Filter Chips Strip -->
+      <div class="filter-chips-strip">
+        <button class="filter-chip active" data-filter="all">सर्व अध्याय (All 18)</button>
+        <button class="filter-chip" data-filter="ancient">प्राचीन ते यांत्रिक (1-4)</button>
+        <button class="filter-chip" data-filter="generations">५ मुख्य पिढ्या (5-8)</button>
+        <button class="filter-chip" data-filter="pc-web">पीसी व इंटरनेट (9-11)</button>
+        <button class="filter-chip" data-filter="india">🇮🇳 भारताचा इतिहास (12)</button>
+        <button class="filter-chip" data-filter="modern-ai">हार्डवेअर, क्लाउड व AI (13-18)</button>
+      </div>
+    </div>
+
+    <!-- 18 Chapters Bento Grid -->
+    <div class="chapters-bento-grid" id="chaptersGridContainer"></div>
+  </section>
+
+  <!-- ==========================================================================
+       Interactive Timeline Explorer (Stitch Bento Container)
+       ========================================================================== -->
+  <section class="section-wrapper" id="timeline-section" style="padding-top: 1rem;">
+    <div class="section-header-block">
+      <div>
+        <div class="section-label-mono" style="color: var(--primary);">
+          <span>●</span>
+          <span>कालानुक्रम • Interactive Timeline</span>
+        </div>
+        <h2 class="section-title-large marathi-title">५,००० वर्षांचा ऐतिहासिक प्रवास</h2>
+        <p class="section-lead">
+          खालील स्लायडर फिरवून प्राचीन अबॅकसपासून ते आधुनिक क्वांटम व AI युगातील महत्त्वाचे शोध एक्सप्लोर करा!
+        </p>
+      </div>
+      <div id="timelineCurrentLabel" style="font-family: var(--font-mono); font-size: 1.05rem; color: var(--primary); font-weight: bold; background: var(--primary-subtle); padding: 0.6rem 1.2rem; border-radius: var(--radius-btn); border: 1px solid var(--primary-border);">
+        १९४६ — ENIAC संगणक
+      </div>
+    </div>
+
+    <div class="timeline-bento-box">
+      <input type="range" class="timeline-range-slider" id="timelineRangeSlider" min="0" max="18" value="6" step="1">
+      <div class="timeline-years-labels">
+        <span>~२४०० BCE (अबॅकस)</span>
+        <span>१८३०s (बॅबेज)</span>
+        <span>१९४६ (ENIAC)</span>
+        <span>१९५४ (TIFRAC)</span>
+        <span>१९७१ (मायक्रोप्रोसेसर)</span>
+        <span>१९८९ (WWW)</span>
+        <span>१९९१ (PARAM)</span>
+        <span>आज (AI युग)</span>
+      </div>
+    </div>
+
+    <div id="timelineCardsTrack"></div>
+  </section>
+
+  <!-- ==========================================================================
+       5 Generations Comparison Matrix Table (Stitch Bento Table)
+       ========================================================================== -->
+  <section class="section-wrapper" id="generations-section">
+    <div class="section-header-block">
+      <div>
+        <div class="section-label-mono" style="color: var(--primary);">
+          <span>●</span>
+          <span>हार्डवेअर तुलना • The 5 Generations Matrix</span>
+        </div>
+        <h2 class="section-title-large marathi-title">संगणकाच्या ५ पिढ्यांची तुलना</h2>
+        <p class="section-lead">
+          व्हॅक्यूम ट्यूब्स ते ट्रान्झिस्टर, आयसी, मायक्रोप्रोसेसर आणि आधुनिक कृत्रिम बुद्धिमत्तेपर्यंत तंत्रज्ञानातील बदल:
+        </p>
+      </div>
+      <div style="background: #fffbeb; border: 1px solid #fde68a; padding: 0.6rem 1.1rem; border-radius: var(--radius-btn); font-size: 0.85rem; color: #92400e; font-weight: 600;">
+        ⚠️ <strong>टीप:</strong> 'पाचवी पिढी' ही AI साठी वापरली जाणारी लोकप्रिय शैक्षणिक वर्गवारी आहे.
+      </div>
+    </div>
+
+    <div class="matrix-bento-container">
+      <div style="overflow-x: auto;">
+        <table class="matrix-table">
+          <thead>
+            <tr>
+              <th>पिढी व काळ (Generation)</th>
+              <th>मुख्य तंत्रज्ञान (Technology)</th>
+              <th>आकार (Size)</th>
+              <th>गती (Speed)</th>
+              <th>वीज वापर (Power)</th>
+              <th>प्रोग्रामिंग भाषा (Software)</th>
+              <th>उदाहरणे (Examples)</th>
+              <th>व्हिडिओ (Video Reel)</th>
+            </tr>
+          </thead>
+          <tbody id="generationsTableBody"></tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- 5 Generations Video Showcase Cinema Modal & Reel Player -->
+    <div class="video-showcase-container" id="video-hub-section">
+      <div class="video-cinema-card">
+        <div class="video-cinema-header">
+          <div>
+            <div class="section-label-mono" style="color: var(--accent-cta);">
+              <span>🎬</span>
+              <span>सिनेमॅटिक रील्स • 5 Generations HD Motion Player</span>
+            </div>
+            <h3 class="video-cinema-heading marathi-title" id="videoCinemaTitle">
+              १ली पिढी: व्हॅक्यूम ट्यूब्स व प्रचंड संगणक (1940 – 1956)
+            </h3>
+            <p class="video-cinema-sub" id="videoCinemaSub">
+              First Generation: Vacuum Tubes, ENIAC and Room-sized Giant Computing
+            </p>
+          </div>
+          <div class="video-pills-row">
+            <button class="video-pill-btn active" onclick="app.playGenerationVideo(1)" data-gen="1">
+              <span>💡</span> १ली पिढी (1940-56)
+            </button>
+            <button class="video-pill-btn" onclick="app.playGenerationVideo(2)" data-gen="2">
+              <span>📻</span> २री पिढी (1956-63)
+            </button>
+            <button class="video-pill-btn" onclick="app.playGenerationVideo(3)" data-gen="3">
+              <span>🔲</span> ३री पिढी (1964-71)
+            </button>
+            <button class="video-pill-btn" onclick="app.playGenerationVideo(4)" data-gen="4">
+              <span>⚡</span> ४थी पिढी (1971-आज)
+            </button>
+            <button class="video-pill-btn" onclick="app.playGenerationVideo(5)" data-gen="5">
+              <span>🧠</span> ५वी पिढी (AI व पुढे)
+            </button>
+          </div>
+        </div>
+
+        <!-- Cinema Screen Split Layout -->
+        <div class="video-screen-layout">
+          <div class="video-player-frame">
+            <video id="generationVideoPlayer" controls playsinline preload="metadata" poster="assets/images/eniac_1946.jpg">
+              <source id="genVideoSource" src="assets/videos/gen1_video.mp4" type="video/mp4">
+              तुमचा ब्राउझर व्हिडिओ टॅगला सपोर्ट करत नाही.
+            </video>
+            <div class="video-live-badge">
+              <span class="pulse-dot"></span> HD REEL PLAYBACK
+            </div>
+          </div>
+
+          <div class="video-telemetry-pane">
+            <div>
+              <div class="telemetry-badge-era" id="telemetryEra">१९४० ते १९५६ चे दशक</div>
+              <h4 class="telemetry-tech-name marathi-title" id="telemetryTechName">व्हॅक्यूम ट्यूब्स (Vacuum Tubes)</h4>
+              <p class="telemetry-summary" id="telemetrySummary">
+                इतिहासामध्ये पहिल्यांदाच इलेक्ट्रॉनिक पद्धतीने हजारो पटींनी वेगवान गणना करणे शक्य झाले. १८,०००+ काचेच्या व्हॅक्यूम ट्यूब्स आणि ३० टन वजनाचा ENIAC हा आधुनिक संगणकाचा आद्य जनक होता!
+              </p>
+
+              <div class="telemetry-specs-grid">
+                <div class="telemetry-spec-item">
+                  <span class="telemetry-spec-label">वेग (Speed)</span>
+                  <span class="telemetry-spec-val" id="telemetrySpeed">५,००० बेरीज/सेकंद</span>
+                </div>
+                <div class="telemetry-spec-item">
+                  <span class="telemetry-spec-label">मेमरी (Memory)</span>
+                  <span class="telemetry-spec-val" id="telemetryMemory">मॅग्नेटिक ड्रम, पंच कार्ड</span>
+                </div>
+                <div class="telemetry-spec-item">
+                  <span class="telemetry-spec-label">भाषा (Language)</span>
+                  <span class="telemetry-spec-val" id="telemetryLang">Machine Code (0 आणि 1)</span>
+                </div>
+                <div class="telemetry-spec-item">
+                  <span class="telemetry-spec-label">उदाहरणे (Examples)</span>
+                  <span class="telemetry-spec-val" id="telemetryExamples">ENIAC, UNIVAC I, EDVAC</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="video-quick-controls">
+              <button class="btn-primary" onclick="app.toggleVideoPlay()">
+                <span id="playBtnIcon">▶️</span> <span id="playBtnText">व्हिडिओ प्ले करा</span>
+              </button>
+              <button class="btn-secondary" onclick="app.nextGenerationVideo()">
+                <span>⏭️ पुढील पिढी</span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       India's Computing Journey (TIFRAC & PARAM 8000 Bento)
+       ========================================================================== -->
+  <section class="section-wrapper" id="india-section">
+    <div class="section-header-block">
+      <div>
+        <div class="section-label-mono" style="color: var(--accent-cta);">
+          <span>●</span>
+          <span>स्वावलंबी भारत • Indian Computing History</span>
+        </div>
+        <h2 class="section-title-large marathi-title">भारताची अभिमानास्पद संगणक गाथा</h2>
+        <p class="section-lead">
+          १९५० च्या दशकातील TIFRAC पासून ते १९९१ च्या स्वदेशी सुपरकॉम्प्युटर 'PARAM 8000' पर्यंतचा भारताचा गौरवशाली इतिहास.
+        </p>
+      </div>
+      <div style="display: flex; gap: 0.65rem;">
+        <span style="background: #fffbeb; color: #92400e; border: 1px solid #fde68a; padding: 0.4rem 0.9rem; border-radius: 8px; font-family: var(--font-mono); font-size: 0.82rem; font-weight: 700;">
+          TIFR मुंबई
+        </span>
+        <span style="background: #ecfdf5; color: #065f46; border: 1px solid #a7f3d0; padding: 0.4rem 0.9rem; border-radius: 8px; font-family: var(--font-mono); font-size: 0.82rem; font-weight: 700;">
+          C-DAC पुणे
+        </span>
+      </div>
+    </div>
+
+    <!-- India Computing Museum Photo Showcase Banner -->
+    <div style="margin-bottom: 2.25rem; border-radius: var(--radius-container); overflow: hidden; position: relative; max-height: 380px; border: 1px solid var(--border-card); box-shadow: var(--shadow-card);">
+      <img src="assets/images/india_tifrac_param.jpg" alt="Journey of Indian Computing: TIFRAC to PARAM 8000" style="width: 100%; height: 380px; object-fit: cover;">
+      <div style="position: absolute; inset: 0; background: linear-gradient(180deg, rgba(15, 23, 42, 0.05) 0%, rgba(15, 23, 42, 0.72) 100%);"></div>
+      <div style="position: absolute; bottom: 1.75rem; left: 2.25rem; right: 2.25rem; display: flex; justify-content: space-between; align-items: flex-end; flex-wrap: wrap; gap: 1rem;">
+        <div>
+          <span style="background: rgba(249, 115, 22, 0.95); color: #fff; font-family: var(--font-mono); font-size: 0.78rem; font-weight: 700; padding: 0.35rem 0.85rem; border-radius: 6px; text-transform: uppercase;">
+            🏛️ प्रत्यक्ष राष्ट्रीय विज्ञान संग्रहालय प्रदर्शन
+          </span>
+          <h3 class="marathi-title" style="font-size: 1.9rem; color: #fff; margin-top: 0.6rem; text-shadow: 0 2px 10px rgba(0,0,0,0.7);">
+            भारतीय संगणकाचा ऐतिहासिक प्रवास: TIFRAC (मुंबई) ते PARAM 8000 (पुणे)
+          </h3>
+        </div>
+        <div style="font-family: var(--font-mono); font-size: 0.85rem; color: #ffffff; background: rgba(15, 23, 42, 0.82); padding: 0.45rem 1rem; border-radius: 8px; backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, 0.2);">
+          डॉ. होमी भाभा • प्रा. आर. नरसिंहन • डॉ. विजय भटकर
+        </div>
+      </div>
+    </div>
+
+    <div class="india-bento-grid">
+      <!-- TIFRAC Card -->
+      <div class="india-card-bento tifr">
+        <div>
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.25rem;">
+            <span style="font-size: 2.2rem;">🏛️</span>
+            <span style="font-family: var(--font-mono); color: var(--accent-amber); font-weight: bold; font-size: 1.1rem;">१९५४ - १९६०</span>
+          </div>
+          <h3 style="font-size: 1.7rem; font-weight: 800; margin-bottom: 0.75rem; color: var(--text-primary);">
+            TIFRAC — भारताचा पहिला स्वदेशी डिजिटल संगणक
+          </h3>
+          <p style="color: var(--text-secondary); font-size: 1.05rem; line-height: 1.6; margin-bottom: 1.5rem;">
+            डॉ. होमी भाभा यांच्या दूरदृष्टीतून आणि प्रा. आर. नरसिंहन यांच्या कुशल नेतृत्वाखाली टाटा इन्स्टिट्यूट ऑफ फंडामेंटल रिसर्च (TIFR), मुंबई येथे TIFRAC विकसित झाला.
+          </p>
+
+          <div style="display: flex; flex-direction: column; gap: 0.85rem;">
+            <div style="display: flex; gap: 1rem; align-items: flex-start;">
+              <span style="font-family: var(--font-mono); color: var(--accent-amber); font-weight: bold; min-width: 55px;">१९५४</span>
+              <span style="color: var(--text-secondary); font-size: 0.95rem;">संगणक विज्ञान व तंत्रज्ञान संशोधन गटाची स्थापना झाली.</span>
+            </div>
+            <div style="display: flex; gap: 1rem; align-items: flex-start;">
+              <span style="font-family: var(--font-mono); color: var(--accent-amber); font-weight: bold; min-width: 55px;">१९५६</span>
+              <span style="color: var(--text-secondary); font-size: 0.95rem;">पायलेट मॉडेल (Pilot Model) यशस्वीपणे कार्यान्वित झाले.</span>
+            </div>
+            <div style="display: flex; gap: 1rem; align-items: flex-start;">
+              <span style="font-family: var(--font-mono); color: var(--accent-amber); font-weight: bold; min-width: 55px;">१९६०</span>
+              <span style="color: var(--text-secondary); font-size: 0.95rem;">पंडित जवाहरलाल नेहरू यांनी संपूर्ण क्षमतेच्या मशीनचे नाव 'TIFRAC' ठेवले!</span>
+            </div>
+          </div>
+        </div>
+
+        <div style="margin-top: 2rem; font-family: var(--font-mono); font-size: 0.8rem; color: var(--text-muted); border-top: 1px solid var(--border-card); padding-top: 1rem;">
+          🏛️ संदर्भ: Tata Institute of Fundamental Research (TIFR) Archives
+        </div>
+      </div>
+
+      <!-- PARAM 8000 Card -->
+      <div class="india-card-bento cdac">
+        <div>
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.25rem;">
+            <span style="font-size: 2.2rem;">🇮🇳</span>
+            <span style="font-family: var(--font-mono); color: var(--accent-emerald); font-weight: bold; font-size: 1.1rem;">१९९१</span>
+          </div>
+          <h3 style="font-size: 1.7rem; font-weight: 800; margin-bottom: 0.75rem; color: var(--text-primary);">
+            PARAM 8000 — भारताचा पहिला स्वदेशी सुपरकॉम्प्युटर
+          </h3>
+          <p style="color: var(--text-secondary); font-size: 1.05rem; line-height: 1.6; margin-bottom: 1.5rem;">
+            जेव्हा अमेरिकेने भारताला हवामान अभ्यासासाठी 'Cray' सुपरकॉम्प्युटर देण्यास नकार दिला, तेव्हा भारताने स्वतःच्या पायावर उभे राहण्याचा निर्धार केला.
+          </p>
+
+          <div style="display: flex; flex-direction: column; gap: 0.85rem;">
+            <div style="display: flex; gap: 1rem; align-items: flex-start;">
+              <span style="font-family: var(--font-mono); color: var(--accent-emerald); font-weight: bold; min-width: 55px;">१९८८</span>
+              <span style="color: var(--text-secondary); font-size: 0.95rem;">पुण्यात C-DAC ची स्थापना झाली आणि डॉ. विजय भटकर यांनी सूत्रे हाती घेतली.</span>
+            </div>
+            <div style="display: flex; gap: 1rem; align-items: flex-start;">
+              <span style="font-family: var(--font-mono); color: var(--accent-emerald); font-weight: bold; min-width: 55px;">१९९१</span>
+              <span style="color: var(--text-secondary); font-size: 0.95rem;">६४ नोड्सवर आधारित समांतर प्रक्रियेचा (Parallel) 'PARAM 8000' तयार झाला!</span>
+            </div>
+            <div style="display: flex; gap: 1rem; align-items: flex-start;">
+              <span style="font-family: var(--font-mono); color: var(--accent-emerald); font-weight: bold; min-width: 55px;">आज</span>
+              <span style="color: var(--text-secondary); font-size: 0.95rem;">भारत सुपरकम्प्युटिंग, इस्रो (ISRO) आणि डिजिटल पब्लिक इन्फ्रास्ट्रक्चर (UPI) मध्ये जगात अव्वल!</span>
+            </div>
+          </div>
+        </div>
+
+        <div style="margin-top: 2rem; font-family: var(--font-mono); font-size: 0.8rem; color: var(--text-muted); border-top: 1px solid var(--border-card); padding-top: 1rem;">
+          🏛️ संदर्भ: C-DAC Official Heritage & Ministry of Electronics and IT
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       Inside a Computer (Hardware Anatomy Explorer Bento)
+       ========================================================================== -->
+  <section class="section-wrapper" id="hardware-section">
+    <div class="section-header-block">
+      <div>
+        <div class="section-label-mono" style="color: var(--primary);">
+          <span>●</span>
+          <span>हार्डवेअर अंतरंग • Hardware Anatomy</span>
+        </div>
+        <h2 class="section-title-large marathi-title">संगणकाच्या आत काय असते?</h2>
+        <p class="section-lead">
+          बाहेरून दिसणारा डबा उघडून आतले मुख्य अवयव पाहूया! साध्या घरगुती उपमांच्या साहाय्याने जाणून घ्या:
+        </p>
+      </div>
+    </div>
+
+    <div class="hardware-bento-grid">
+      <!-- Part Selector -->
+      <div class="part-picker-list">
+        <button class="part-btn active" data-part="cpu">
+          <div>
+            <div style="font-weight: 700; font-size: 1.15rem;">🧠 CPU (Central Processing Unit)</div>
+            <div style="font-size: 0.85rem; color: var(--text-muted);">संगणकाचा मेंदू • सर्व गणिते व निर्णय</div>
+          </div>
+          <span style="color: var(--primary); font-weight: bold;">➔</span>
+        </button>
+
+        <button class="part-btn" data-part="ram">
+          <div>
+            <div style="font-weight: 700; font-size: 1.15rem;">⚡ RAM (Random Access Memory)</div>
+            <div style="font-size: 0.85rem; color: var(--text-muted);">कामाचे टेबल • तात्पुरती अतिजलद मेमरी</div>
+          </div>
+          <span style="color: var(--primary); font-weight: bold;">➔</span>
+        </button>
+
+        <button class="part-btn" data-part="storage">
+          <div>
+            <div style="font-weight: 700; font-size: 1.15rem;">💾 Storage (SSD / Hard Disk)</div>
+            <div style="font-size: 0.85rem; color: var(--text-muted);">कायमस्वरूपी कपाट • फोटो, फाईल्स व गेम्स</div>
+          </div>
+          <span style="color: var(--primary); font-weight: bold;">➔</span>
+        </button>
+
+        <button class="part-btn" data-part="motherboard">
+          <div>
+            <div style="font-weight: 700; font-size: 1.15rem;">🛣️ Motherboard (मुख्य सर्किट बोर्ड)</div>
+            <div style="font-size: 0.85rem; color: var(--text-muted);">सर्वांना जोडणारा महामार्ग • डेटा बसेस</div>
+          </div>
+          <span style="color: var(--primary); font-weight: bold;">➔</span>
+        </button>
+
+        <button class="part-btn" data-part="gpu">
+          <div>
+            <div style="font-weight: 700; font-size: 1.15rem;">🎮 GPU (Graphics Processing Unit)</div>
+            <div style="font-size: 0.85rem; color: var(--text-muted);">दृश्यांचा जादूगार • 3D ग्राफिक्स व AI इंजिन</div>
+          </div>
+          <span style="color: var(--primary); font-weight: bold;">➔</span>
+        </button>
+      </div>
+
+      <!-- Part Interactive Display Box -->
+      <div class="part-detail-box" id="hardwarePartDisplay"></div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       Interactive Quiz & Games Hub
+       ========================================================================== -->
+  <section class="section-wrapper" id="quiz-section">
+    <div class="section-header-block">
+      <div>
+        <div class="section-label-mono" style="color: var(--accent-cta);">
+          <span>●</span>
+          <span>खेळ आणि परीक्षा • Quiz & Challenge Hub</span>
+        </div>
+        <h2 class="section-title-large marathi-title">चला ज्ञान तपासूया!</h2>
+        <p class="section-lead">
+          ३ कठीणता पातळी (Std 1-4, 5-7, 8-10), कालानुक्रम मांडणी आणि पिढ्या जुळवण्याचे परस्परसंवादी खेळ:
+        </p>
+      </div>
+
+      <!-- Quiz Difficulty Selector -->
+      <div style="display: flex; gap: 0.5rem; background: #ffffff; padding: 4px; border-radius: var(--radius-btn); border: 1px solid var(--border-card); box-shadow: var(--shadow-subtle);">
+        <button class="grade-btn quiz-level-btn" data-level="easy">🟢 सोपे (Std 1-4)</button>
+        <button class="grade-btn quiz-level-btn active" data-level="medium">🟡 मध्यम (Std 5-7)</button>
+        <button class="grade-btn quiz-level-btn" data-level="advanced">🟣 प्रगत (Std 8-10)</button>
+      </div>
+    </div>
+
+    <div class="quiz-hub-card">
+      <!-- Quiz Mode Tabs -->
+      <div style="display: flex; gap: 0.5rem; margin-bottom: 2rem; border-bottom: 1px solid var(--border-card); padding-bottom: 1rem; flex-wrap: wrap;">
+        <button class="filter-chip quiz-tab-btn active" data-tab="questions">📝 प्रश्नमंजुषा (Quiz)</button>
+        <button class="filter-chip quiz-tab-btn" data-tab="timeline">⏳ कालानुक्रम स्पर्धा (Timeline Order)</button>
+        <button class="filter-chip quiz-tab-btn" data-tab="matching">🔗 पिढ्यांच्या जोड्या (Generation Match)</button>
+      </div>
+
+      <!-- Interactive Content Container -->
+      <div id="quizHubContent"></div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       Teacher Toolkit & Classroom Activities
+       ========================================================================== -->
+  <section class="section-wrapper" id="teacher-section">
+    <div class="section-header-block">
+      <div>
+        <div class="section-label-mono" style="color: var(--accent-amber);">
+          <span>●</span>
+          <span>शिक्षकांसाठी • Classroom Activities & Toolkit</span>
+        </div>
+        <h2 class="section-title-large marathi-title">वर्गातील ५ प्रत्यक्ष उपक्रम</h2>
+        <p class="section-lead">
+          केवळ फळ्यावर व्याख्या न शिकवता विद्यार्थ्यांना कृतीतून आणि खेळांमधून संगणक शिकवणारे प्रात्यक्षिक उपक्रम:
+        </p>
+      </div>
+    </div>
+
+    <div class="activity-cards-grid" id="activitiesGrid"></div>
+  </section>
+
+  <!-- ==========================================================================
+       Institutional Sources Modal Drawer
+       ========================================================================== -->
+  <div class="source-modal" id="sourcesModal" aria-modal="true" role="dialog">
+    <div class="source-modal-box">
+      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem; border-bottom: 1px solid var(--border-card); padding-bottom: 1rem;">
+        <div>
+          <h3 style="font-size: 1.6rem; font-weight: 800; color: var(--text-primary);">🏛️ सत्यापित ऐतिहासिक संदर्भ ग्रंथालय</h3>
+          <p style="font-size: 0.85rem; color: var(--text-muted); margin-top: 0.25rem;">
+            Computer History Museum, Penn Archives, TIFR, C-DAC, CERN व Nobel Foundation
+          </p>
+        </div>
+        <button class="btn-icon" id="btnCloseSourceModal" title="बंद करा">✕</button>
+      </div>
+
+      <div id="sourcesListContainer"></div>
+    </div>
+  </div>
+
+  <!-- ==========================================================================
+       Full-Screen 16:9 Presentation Deck Modal (Canva Pitch Deck Style)
+       ========================================================================== -->
+  <div class="presentation-modal" id="presentationModal" aria-modal="true" role="dialog">
+    <!-- Frame containing 16:9 Slide Canvas -->
+    <div class="presentation-frame">
+      <div class="slide-canvas-16-9" id="slideCanvas"></div>
+    </div>
+
+    <!-- Speaker / Teacher Notes Drawer -->
+    <div class="teacher-notes-drawer" id="teacherNotesDrawer">
+      <div class="teacher-notes-title">
+        <span>👨‍🏫 शिक्षकांसाठी मार्गदर्शक टीप (Teacher Notes)</span>
+        <button onclick="document.getElementById('teacherNotesDrawer').classList.remove('open')" style="background: none; border: none; color: var(--text-secondary); cursor: pointer; font-size: 1.1rem;">✕</button>
+      </div>
+      <div id="teacherNotesContent"></div>
+    </div>
+
+    <!-- Presentation Navigation & Controls Bar -->
+    <div class="presentation-controls-bar">
+      <div class="slide-nav-group">
+        <button class="btn-secondary" id="btnSlidePrev" title="मागील स्लाईड (Left Arrow)">◀ मागील</button>
+        <button class="btn-primary" id="btnSlideNext" title="पुढील स्लाईड (Right Arrow / Space)">पुढील ▶</button>
+        <div class="slide-counter" id="slideCounter">१ / ५०</div>
+        <div class="slide-progress-track">
+          <div class="slide-progress-bar" id="slideProgressBar"></div>
+        </div>
+      </div>
+
+      <div class="slide-nav-group">
+        <button class="btn-secondary" id="btnSlideNotes" title="शिक्षक टीपा दाखवा (N key)">📝 शिक्षक टीपा (N)</button>
+        <button class="btn-secondary" id="btnSlideFullscreen" title="फुलस्क्रीन (F key)">⛶ फुलस्क्रीन (F)</button>
+        <button class="btn-secondary" id="btnSlideClose" title="बाहेर पडा (Esc key)">✕ बंद करा (Esc)</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==========================================================================
+       Site Footer
+       ========================================================================== -->
+  <footer class="site-footer">
+    <div class="footer-quote marathi-title">
+      "मानवाला problem आला... गणना सोपी करण्याचा प्रयत्न केला... मशिन्स तयार झाल्या... इलेक्ट्रॉनिक्स आली... संगणक smaller आणि faster झाले... connected झाले... आज बुद्धिमत्ता दाखवू लागले..."
+    </div>
+
+    <div style="font-size: 1.4rem; font-weight: 800; color: var(--accent-cta); margin-bottom: 2rem;">
+      ✨ पुढची Computer Generation तुम्ही तयार करणार का? ✨
+    </div>
+
+    <div style="font-size: 0.85rem; color: var(--text-muted); max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; flex-wrap: wrap; gap: 1rem; border-top: 1px solid var(--border-card); padding-top: 2rem;">
+      <div>
+        © 2026 संगणक उत्क्रांती — Computer Evolution Education Initiative. सर्व हक्क सुरक्षित.
+      </div>
+      <div>
+        भाषा: मराठी-प्रथम (Marathi-First) • Modern SaaS Bento Design System • शैक्षणिक वापरासाठी विनामूल्य
+      </div>
+    </div>
+  </footer>
+
+  <!-- Master JavaScript Application Bundle -->
+  <script type="module" src="js/app.js"></script>
+</body>
+</html>
