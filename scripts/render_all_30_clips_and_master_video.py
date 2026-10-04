@@ -162,7 +162,11 @@ def render_all_clips():
         '-f', 'concat',
         '-safe', '0',
         '-i', concat_list,
-        '-c', 'copy',
+        '-c:v', 'libx264',
+        '-preset', 'veryfast',
+        '-crf', '23',
+        '-c:a', 'aac',
+        '-b:a', '128k',
         master_video
     ]
     subprocess.run(cmd_concat, check=True, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)

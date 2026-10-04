@@ -791,7 +791,7 @@ class App {
       const clipIdx = Math.min(Math.floor((current / totalDur) * g1ClipsData.length), g1ClipsData.length - 1);
       const clip = g1ClipsData[clipIdx];
       if (ccTag) {
-        ccTag.textContent = `📌 ${clip.prompt_id} (${clip.timeline_in_reel}): ${clip.title_marathi} • ${clip.title_english}`;
+        ccTag.textContent = `📌 दृश्य ${clipIdx + 1}/30: ${clip.title_marathi} • ${clip.title_english}`;
       }
       if (ccText) {
         ccText.textContent = this.currentCcLang === 'mr' ? clip.audio.narration_mr : clip.teaching_point;

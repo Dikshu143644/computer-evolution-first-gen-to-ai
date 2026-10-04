@@ -190,45 +190,12 @@ def render_gen1_movie():
             p_color = amber_bgr if i % 4 != 0 else cyan_bgr
             cv2.circle(canvas, (pt_x, pt_y), 2 if i % 5 == 0 else 1, p_color, -1)
 
-        # 4. Minimalist Cinema Telemetry HUD (Non-intrusive)
-        # Top Header Bar (Sleek Glassmorphic Bar)
-        top_bar_y = 38
-        cv2.rectangle(canvas, (32, 16), (WIDTH - 32, 52), (15, 23, 42), -1)
-        cv2.rectangle(canvas, (32, 16), (WIDTH - 32, 52), (80, 100, 130), 1)
-
-        clip_str = f"{clip_info['id']} // {clip_idx + 1:02d} OF 30 // {clip_info['title']}"
-        cv2.putText(canvas, clip_str, (48, 38), cv2.FONT_HERSHEY_SIMPLEX, 0.54, (245, 245, 245), 1, cv2.LINE_AA)
-
-        # Top Right Timer
-        mins = int(t // 60)
-        secs = int(t % 60)
-        time_str = f"{mins:02d}:{secs:02d} / 05:00"
-        cv2.putText(canvas, time_str, (WIDTH - 180, 38), cv2.FONT_HERSHEY_SIMPLEX, 0.54, amber_bgr, 1, cv2.LINE_AA)
-
-        # Slim Progress Bar along bottom of top bar
-        prog_w = int((WIDTH - 64) * (t / TOTAL_DURATION))
-        if prog_w > 0:
-            cv2.line(canvas, (32, 52), (32 + prog_w, 52), amber_bgr, 2)
-
-        # 5. Live Audio Waveform Visualizer at Bottom Left (Subtle & Sleek)
-        wave_base_y = HEIGHT - 24
-        wave_start_x = 40
-        num_bars = 48
-        for b in range(num_bars):
-            bx = wave_start_x + b * 6
-            amp = (math.sin(t * 9.0 + b * 0.4) * math.cos(t * 5.0 + b * 0.3) + 1.0) * 0.5
-            b_height = int(3 + amp * 18)
-            col = cyan_bgr if b % 6 == 0 else amber_bgr
-            cv2.line(canvas, (bx, wave_base_y), (bx, wave_base_y - b_height), col, 2)
-
-        # Bottom Right Generation Tag
-        cv2.putText(canvas, "FIRST GEN // 1940-1956", (WIDTH - 230, HEIGHT - 20),
-                    cv2.FONT_HERSHEY_SIMPLEX, 0.45, (180, 190, 205), 1, cv2.LINE_AA)
-
+        # Pure cinematic visuals (no burned-in text or prompt badges)
         proc.stdin.write(canvas.tobytes())
 
         if f_idx % 300 == 0:
             pct = (f_idx / TOTAL_FRAMES) * 100
+            time_str = f"{int(t // 60):02d}:{int(t % 60):02d} / 05:00"
             print(f"  Rendering frame {f_idx}/{TOTAL_FRAMES} ({pct:.1f}%) | Clip {clip_idx + 1}/30 [{time_str}]")
 
     proc.stdin.close()
