@@ -2099,32 +2099,12 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .video-cinema-header {
-  margin-bottom: 1.25rem;
-}
-
-.video-cinema-title-block {
-  max-width: 720px;
-}
-
-/* Generation Pills Full-Width Selector Row */
-.video-gen-selector-row {
-  margin-bottom: 1.75rem;
-  padding-bottom: 1.5rem;
-  border-bottom: 1px solid var(--border-subtle);
-}
-
-.video-gen-selector-row .video-pills-row {
   display: flex;
-  gap: 0.5rem;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 2rem;
+  margin-bottom: 2rem;
   flex-wrap: wrap;
-  background: rgba(248, 250, 252, 0.7);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border: 1px solid var(--border-card);
-  border-radius: var(--radius-pill);
-  padding: 6px;
-  width: fit-content;
-  max-width: 100%;
 }
 
 .video-cinema-heading {
@@ -2166,18 +2146,11 @@ h1, h2, h3, h4, h5, h6 {
   align-items: center;
   gap: 0.4rem;
   transition: all 0.2s ease;
-  white-space: nowrap;
-}
-
-.video-pill-btn.active {
-  background: var(--primary);
-  color: #ffffff;
-  box-shadow: 0 2px 8px rgba(79, 70, 229, 0.3);
 }
 
 .video-pill-btn:hover {
-  background: rgba(79, 70, 229, 0.08);
-  color: var(--primary);
+  background: rgba(255, 255, 255, 0.9);
+  color: var(--text-primary);
 }
 
 /* Audio Track & CC Toolbar */
@@ -2336,26 +2309,27 @@ h1, h2, h3, h4, h5, h6 {
 
 .video-live-cc-banner {
   position: absolute !important;
-  bottom: 3.8rem !important;  /* sits above the native video controls bar (~50px) */
+  bottom: 2.2rem !important;
   left: 50% !important;
   transform: translateX(-50%) !important;
   width: auto !important;
-  max-width: min(90%, 780px) !important;
+  max-width: min(90%, 760px) !important;
   box-sizing: border-box !important;
-  background: rgba(10, 16, 32, 0.52) !important;
-  backdrop-filter: blur(16px) saturate(200%) !important;
-  -webkit-backdrop-filter: blur(16px) saturate(200%) !important;
-  border: 1px solid rgba(255, 255, 255, 0.28) !important;
-  border-radius: 16px !important;
-  padding: 0.65rem 1.4rem !important;
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.45), inset 0 1px 0 rgba(255, 255, 255, 0.28) !important;
+  background: rgba(15, 23, 42, 0.42) !important;
+  backdrop-filter: blur(14px) saturate(180%) !important;
+  -webkit-backdrop-filter: blur(14px) saturate(180%) !important;
+  border: 1px solid rgba(255, 255, 255, 0.22) !important;
+  border-radius: 14px !important;
+  padding: 0.55rem 1.25rem !important;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.35), inset 0 1px 0 rgba(255, 255, 255, 0.25) !important;
   z-index: 10;
   text-align: center;
   pointer-events: none;
-  transition: opacity 0.4s ease;
+  transition: opacity 0.3s ease, transform 0.3s ease;
 }
 
 .video-live-cc-banner.hidden {
+  display: none !important;
   opacity: 0 !important;
   visibility: hidden !important;
   pointer-events: none !important;
