@@ -97,44 +97,24 @@ def render_all_clips():
         # deep charcoal shadows, tungsten amber light, warm sepia
         vf_filter = f"{vf_zoom},vignette=PI/4,eq=contrast=1.08:brightness=-0.02:saturation=1.10"
 
-        # Check for benchmark AI video clip (e.g. CO1.1.mp4 for G1-C01)
-        ai_ref_video = os.path.join('assets', 'videos', 'CO1.1.mp4')
-        if cid == 'G1-C01' and os.path.exists(ai_ref_video):
-            cmd = [
-                FFMPEG_EXE, '-y',
-                '-i', ai_ref_video,
-                '-i', audio_path,
-                '-filter_complex', '[0:v]scale=1280:720:force_original_aspect_ratio=decrease,pad=1280:720:(ow-iw)/2:(oh-ih)/2,setsar=1[v];[1:a]apad=whole_dur=10.0[a]',
-                '-map', '[v]',
-                '-map', '[a]',
-                '-c:v', 'libx264',
-                '-preset', 'veryfast',
-                '-crf', '20',
-                '-c:a', 'aac',
-                '-b:a', '128k',
-                '-t', '10.0',
-                '-pix_fmt', 'yuv420p',
-                clip_out
-            ]
-        else:
-            cmd = [
-                FFMPEG_EXE, '-y',
-                '-loop', '1',
-                '-i', img_path,
-                '-i', audio_path,
-                '-c:v', 'libx264',
-                '-preset', 'ultrafast',
-                '-tune', 'stillimage',
-                '-crf', '22',
-                '-c:a', 'aac',
-                '-b:a', '128k',
-                '-filter_complex', f"[0:v]{vf_filter}[v];[1:a]apad=whole_dur=10.0[a]",
-                '-map', '[v]',
-                '-map', '[a]',
-                '-t', '10.0',
-                '-pix_fmt', 'yuv420p',
-                clip_out
-            ]
+        cmd = [
+            FFMPEG_EXE, '-y',
+            '-loop', '1',
+            '-i', img_path,
+            '-i', audio_path,
+            '-c:v', 'libx264',
+            '-preset', 'ultrafast',
+            '-tune', 'stillimage',
+            '-crf', '22',
+            '-c:a', 'aac',
+            '-b:a', '128k',
+            '-filter_complex', f"[0:v]{vf_filter}[v];[1:a]apad=whole_dur=10.0[a]",
+            '-map', '[v]',
+            '-map', '[a]',
+            '-t', '10.0',
+            '-pix_fmt', 'yuv420p',
+            clip_out
+        ]
 
         # Skip if already cleanly rendered
         if os.path.exists(clip_out) and os.path.getsize(clip_out) > 500000:
