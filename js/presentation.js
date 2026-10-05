@@ -194,7 +194,7 @@ export class PresentationDeck {
     if (this.notesContentEl) {
       this.notesContentEl.innerHTML = `
         <div style="font-size: 0.95rem; line-height: 1.6; color: var(--text-secondary);">
-          <p style="margin-bottom: 0.5rem;"><strong style="color: var(--accent-amber);">अध्याय उद्दिष्ट:</strong> ${slide.chapterPurpose || 'विद्यार्थ्यांना संकल्पना स्पष्ट करणे.'}</p>
+          <p style="margin-bottom: 0.5rem;"><strong style="color: var(--accent-amber);">Chapter उद्दिष्ट:</strong> ${slide.chapterPurpose || 'विद्यार्थ्यांना संकल्पना स्पष्ट करणे.'}</p>
           <p><strong style="color: var(--primary);">शिक्षकांसाठी टीप:</strong> ${slide.chapterTeacherNotes || 'विद्यार्थ्यांना प्रश्न विचारून संवादात्मक चर्चेला प्रवृत्त करा.'}</p>
         </div>
       `;
@@ -237,7 +237,7 @@ export class PresentationDeck {
     this.canvasEl.innerHTML = `
       <div class="slide-top-bar">
         <div class="slide-chapter-tag">
-          <span class="slide-saas-badge-tag">अध्याय ${slide.chapterNumber}</span>
+          <span class="slide-saas-badge-tag">Chapter ${slide.chapterNumber}</span>
           <span class="slide-chapter-title-text">${slide.chapterTitle}</span>
         </div>
         <div class="slide-grade-badge">

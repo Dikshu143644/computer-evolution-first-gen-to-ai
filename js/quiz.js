@@ -164,7 +164,7 @@ export class QuizEngine {
       congratulationMsg = 'छान प्रयत्न! अजून एकदा उजळणी करून १००% गुण मिळवा!';
       emoji = '👍';
     } else {
-      congratulationMsg = 'हरकत नाही, पुन्हा अध्याय वाचा आणि नवीन जोमाने प्रयत्न करा!';
+      congratulationMsg = 'हरकत नाही, पुन्हा हा Chapter वाचा आणि नवीन जोमाने प्रयत्न करा!';
       emoji = '💡';
     }
 
