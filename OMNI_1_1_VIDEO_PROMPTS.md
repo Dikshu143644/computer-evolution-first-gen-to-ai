@@ -13,6 +13,13 @@
 
 When invoking `gemini_omni_flash_1_1`, pass the prompts below into the prompt payload. For long-form videos (1 to 5 minutes), use the scene-by-scene breakdown and extend each scene using `gemini_omni_flash_1_1_video_extended`.
 
+### 🏆 Golden Reference Benchmark Video: `CO1.1.mp4`
+- **File Path:** [`assets/videos/CO1.1.mp4`](assets/videos/CO1.1.mp4) (Full HD 1080p, 24fps, 10.00s)
+- **Engine Standard:** Google DeepMind / Gemini Omni Flash 1.1 Multimodal Video Engine.
+- **Visual Baseline:** Photorealistic macro push-in on an glowing tungsten vacuum tube filament (#F59E0B amber glow, 2200K optical bloom, floating dust motes, deep charcoal #0B0F19 shadows) in a 1940s laboratory with tall black steel computer racks in the background and crisp cyan HUD tech overlay framing.
+- **Audio Baseline:** 60Hz electrical transformer hum, subtle vacuum tube filament crackle, low atmospheric reverberation.
+- **Production Standard for Remaining Clips:** All subsequent video clips for Generations 1 through 5 must reference `CO1.1.mp4` as the stylistic, lighting, and camera motion benchmark.
+
 ---
 
 ## 🏛️ Generation 1: The Dawn of Electronic Computing (1940 – 1956)

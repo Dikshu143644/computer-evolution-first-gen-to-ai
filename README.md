@@ -23,25 +23,25 @@
 
 ---
 
-## 📚 १८ संपूर्ण अध्याय (18 Comprehensive Chapters)
-1. **अध्याय ०१:** Brainstorm — Computer म्हणजे काय? (What is a Computer?)
-2. **अध्याय ०२:** Before Computers — Computer आधी जग कसं होतं? (Counting, Abacus, Pascaline, Punched cards)
-3. **अध्याय ०३:** Charles Babbage & Ada Lovelace (Difference Engine, Analytical Engine, First Algorithm)
-4. **अध्याय ०४:** Electromechanical Computing (Relays, Harvard Mark I, Grace Hopper 'Bug')
-5. **अध्याय ०५:** First Generation — Vacuum Tubes (~1940s-mid 1950s, ENIAC 1946)
-6. **अध्याय ०६:** Second Generation — Transistors (~mid 1950s-early 1960s, Bell Labs, Assembly, FORTRAN, COBOL)
-7. **अध्याय ०७:** Third Generation — Integrated Circuits (~1960s-early 1970s, Kilby, Noyce, OS, Monitors)
-8. **अध्याय ०८:** Fourth Generation — Microprocessors (1971+, Intel 4004, Moore's Law)
-9. **अध्याय ०९:** Personal Computer Revolution (Altair 8800, Apple II, IBM PC 1981)
-10. **अध्याय १०:** GUI, Mouse, Storage & Software (CLI vs GUI, Douglas Engelbart, Storage evolution)
-11. **अध्याय ११:** Internet & World Wide Web (ARPANET 1969, CERN 1989 Tim Berners-Lee, Internet vs Web)
-12. **अध्याय १२:** Computer History in India (TIFR Mumbai, TIFRAC 1954-1960, C-DAC PARAM 8000 Dr. Vijay Bhatkar)
-13. **अध्याय १३:** Inside a Computer (CPU, RAM, Storage, Motherboard, GPU, Von Neumann architecture)
-14. **अध्याय १४:** From PC to Smartphone & Cloud (SoC, Desktop to Smartphone, Cloud Data Centers)
-15. **अध्याय १५:** AI & The Fifth Generation Question (Educational classification vs hardware standards, Machine Learning, GenAI)
-16. **अध्याय १६:** Modern Computing (CPU+GPU+NPU, 3nm nanometer scale, IoT, Edge computing)
-17. **अध्याय १७:** Future of Computing (Quantum computing qubits, Robotics, Brain-Computer Interfaces)
-18. **अध्याय १८:** Revision, Quiz & Challenge (Timeline ordering game, Generation matching, Final philosophical takeaway)
+## 📚 १८ संपूर्ण Chapters (18 Comprehensive Chapters)
+1. **Chapter ०१:** Brainstorm — Computer म्हणजे काय? (What is a Computer?)
+2. **Chapter ०२:** Before Computers — Computer आधी जग कसं होतं? (Counting, Abacus, Pascaline, Punched cards)
+3. **Chapter ०३:** Charles Babbage & Ada Lovelace (Difference Engine, Analytical Engine, First Algorithm)
+4. **Chapter ०४:** Electromechanical Computing (Relays, Harvard Mark I, Grace Hopper 'Bug')
+5. **Chapter ०५:** First Generation — Vacuum Tubes (~1940s-mid 1950s, ENIAC 1946)
+6. **Chapter ०६:** Second Generation — Transistors (~mid 1950s-early 1960s, Bell Labs, Assembly, FORTRAN, COBOL)
+7. **Chapter ०७:** Third Generation — Integrated Circuits (~1960s-early 1970s, Kilby, Noyce, OS, Monitors)
+8. **Chapter ०८:** Fourth Generation — Microprocessors (1971+, Intel 4004, Moore's Law)
+9. **Chapter ०९:** Personal Computer Revolution (Altair 8800, Apple II, IBM PC 1981)
+10. **Chapter १०:** GUI, Mouse, Storage & Software (CLI vs GUI, Douglas Engelbart, Storage evolution)
+11. **Chapter ११:** Internet & World Wide Web (ARPANET 1969, CERN 1989 Tim Berners-Lee, Internet vs Web)
+12. **Chapter १२:** Computer History in India (TIFR Mumbai, TIFRAC 1954-1960, C-DAC PARAM 8000 Dr. Vijay Bhatkar)
+13. **Chapter १३:** Inside a Computer (CPU, RAM, Storage, Motherboard, GPU, Von Neumann architecture)
+14. **Chapter १४:** From PC to Smartphone & Cloud (SoC, Desktop to Smartphone, Cloud Data Centers)
+15. **Chapter १५:** AI & The Fifth Generation Question (Educational classification vs hardware standards, Machine Learning, GenAI)
+16. **Chapter १६:** Modern Computing (CPU+GPU+NPU, 3nm nanometer scale, IoT, Edge computing)
+17. **Chapter १७:** Future of Computing (Quantum computing qubits, Robotics, Brain-Computer Interfaces)
+18. **Chapter १८:** Revision, Quiz & Challenge (Timeline ordering game, Generation matching, Final philosophical takeaway)
 
 ---
 
@@ -77,6 +77,7 @@
      - 🎙️ **३० स्वतंत्र मराठी ऑडिओ फाइल्स:** `assets/audio/gen1_clips/g1_c01.mp3` ते `g1_c30.mp3` (शिक्षकी शांत आवाज `mr-IN-ManoharNeural`).
      - 🎧 **५ मिनिटांचा सलग मास्टर ऑडिओ ट्रॅक व सबटायटल्स:** `assets/audio/gen1_mr_full_5min.mp3` आणि `assets/audio/gen1_mr_full_5min.vtt`.
    - **५ पिढ्यांचे एचडी सिनेमॅटिक व्हिडिओ रील्स:**
+     - **✨ AI Reference Benchmark Clip (CO1.1.mp4):** Google Veo / OmniFlash 1.1 आधारित सुवर्ण संदर्भ व्हिडिओ क्लिप (1080p, 24fps), व्हॅक्यूम ट्यूब अंतर्गत रचना व सिनेमॅटिक प्रात्यक्षिक. वेब सिनेमा प्लेअरमध्ये 'AI Reference क्लिप (CO1.1)' बटणाद्वारे थेट उपलब्ध.
      - **१ली पिढी (१९४०-५६):** व्हॅक्यूम ट्यूब्स व ENIAC (`gen1_video.mp4`)
      - **२री पिढी (१९५६-६३):** ट्रान्झिस्टर क्रांती व IBM 1401 (`gen2_video.mp4`)
      - **३री पिढी (१९६४-७१):** इंटिग्रेटेड सर्किट्स व सिलिकॉन चिप्स (`gen3_video.mp4`)
