@@ -117,7 +117,7 @@ class App {
             <img src="${media.src}" alt="${ch.title}" loading="lazy">
             <div class="chapter-card-media-overlay"></div>
             <div class="chapter-card-media-badges">
-              <span class="card-num-chip">अध्याय ${ch.chapterNumber}</span>
+              <span class="card-num-chip">Chapter ${ch.chapterNumber}</span>
               <span class="card-provenance-tag">🏛️ ${media.provenance}</span>
             </div>
           </div>
@@ -668,6 +668,20 @@ class App {
         examples: "ChatGPT, AlphaFold, PARAM Ananta, Supercomputers",
         videoSrc: "assets/videos/gen5_video.mp4",
         poster: "assets/images/cloud_ai_datacenter.jpg"
+      },
+      {
+        gen: 'ref',
+        titleEn: "AI Motion Benchmark: Generation 1 Clip 1.1 (OmniFlash 1.1)",
+        titleMr: "✨ AI Reference Clip (CO1.1) • व्हॅक्यूम ट्यूब्स सिनेमॅटिक मॉडेल",
+        era: "AI मोशन व्हिडिओ सुवर्ण संदर्भ (Reference Model)",
+        techName: "व्हॅक्यूम ट्यूब अंतर्गत रचना (Macro Simulation)",
+        summary: "ही व्हिडिओ क्लिप (CO1.1.mp4) Google AI / Gemini Omni Flash 1.1 द्वारे तयार करण्यात आलेली अधिकृत संदर्भ क्लिप (Golden Benchmark) आहे. हे व्हॅक्यूम ट्यूबच्या तंतूंचे (Filament) प्रदीप्त दृश्य आणि १९४० च्या लॅबमधील वातावरण प्रत्यक्ष दर्शवणारा बेंचमार्क आहे.",
+        speed: "२४ fps • १० सेकंद सिनेमॅटिक शॉट (1080p)",
+        memory: "1920x1080 Full HD",
+        lang: "Google Veo 2 / Gemini Flow Prompt AI",
+        examples: "CO1.1.mp4 (Generation 1 Benchmark)",
+        videoSrc: "assets/videos/CO1.1.mp4",
+        poster: "assets/images/g1_vacuum_tube_macro.jpg"
       }
     ];
 
@@ -786,6 +800,14 @@ class App {
     const totalDur = player.duration || 45;
     const current = player.currentTime;
 
+    // AI Reference Video CO1.1 support
+    if (this.currentVideoGen === 'ref') {
+      if (ccTag) ccTag.textContent = '📌 AI संदर्भ दृश्य (CO1.1): व्हॅक्यूम ट्यूब्स व लॅब सिम्युलेशन';
+      if (ccText) ccText.textContent = 'व्हॅक्यूम ट्यूब: गरम फिलामेंटमधून इलेक्ट्रॉन उत्सर्जनाचे सिनेमॅटिक प्रात्यक्षिक (CO1.1.mp4).';
+      if (ccSubText) ccSubText.textContent = 'AI Reference Video Benchmark: High-fidelity tungsten vacuum tube simulation.';
+      return;
+    }
+
     // Granular 30-clip support for Generation 1 (1940-1956)
     if (this.currentVideoGen === 1 && g1ClipsData && g1ClipsData.length > 0) {
       const clipIdx = Math.min(Math.floor((current / totalDur) * g1ClipsData.length), g1ClipsData.length - 1);
@@ -828,13 +850,18 @@ class App {
     
     // Update pills active state
     document.querySelectorAll('.video-pill-btn').forEach(btn => {
-      const bGen = parseInt(btn.getAttribute('data-gen'), 10);
-      if (bGen === genNum) {
+      const bGen = btn.getAttribute('data-gen');
+      if (String(bGen) === String(genNum)) {
         btn.classList.add('active');
       } else {
         btn.classList.remove('active');
       }
     });
+
+    const qualityBadge = document.getElementById('videoQualityBadge');
+    if (qualityBadge) {
+      qualityBadge.textContent = genNum === 'ref' ? 'Full HD 1080p • AI Reference' : 'HD 720p • ऑडिओ सह';
+    }
 
     // Update Telemetry & Text
     const titleEl = document.getElementById('videoCinemaTitle');
@@ -869,8 +896,12 @@ class App {
       player.load();
 
       if (audioTrack && audioSource) {
-        audioSource.src = `assets/audio/gen${genNum}_${this.currentAudioLang}.mp3`;
-        audioTrack.load();
+        if (genNum === 'ref') {
+          audioTrack.pause();
+        } else {
+          audioSource.src = `assets/audio/gen${genNum}_${this.currentAudioLang}.mp3`;
+          audioTrack.load();
+        }
       }
 
       if (autoPlay) {
@@ -894,8 +925,12 @@ class App {
     }
   }
 
+  playAiReferenceVideo() {
+    this.playGenerationVideo('ref', true);
+  }
+
   nextGenerationVideo() {
-    let nextGen = (this.currentVideoGen % 5) + 1;
+    let nextGen = this.currentVideoGen === 'ref' ? 1 : (this.currentVideoGen % 5) + 1;
     this.playGenerationVideo(nextGen, true);
   }
 

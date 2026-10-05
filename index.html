@@ -25,7 +25,7 @@
       </a>
 
       <ul class="nav-links">
-        <li class="nav-item"><a href="#chapters-section">📚 १८ अध्याय</a></li>
+        <li class="nav-item"><a href="#chapters-section">📚 १८ Chapters</a></li>
         <li class="nav-item"><a href="#timeline-section">⏳ टाइमलाइन</a></li>
         <li class="nav-item"><a href="#generations-section">⚡ ५ पिढ्या</a></li>
         <li class="nav-item"><a href="#video-hub-section">🎬 व्हिडिओ रील्स</a></li>
@@ -103,7 +103,7 @@
         <div class="hero-metrics-grid">
           <div class="metric-item">
             <span class="metric-val">१८</span>
-            <span class="metric-label">सविस्तर अध्याय</span>
+            <span class="metric-label">सविस्तर Chapters</span>
           </div>
           <div class="metric-item">
             <span class="metric-val">५</span>
@@ -198,7 +198,7 @@
       <div>
         <div class="section-label-mono">
           <span>●</span>
-          <span>अभ्यासक्रम • संपूर्ण १८ अध्याय</span>
+          <span>अभ्यासक्रम • संपूर्ण १८ Chapters</span>
         </div>
         <h2 class="section-title-large marathi-title">कम्प्युटरच्या इतिहासातील १८ सोनेरी टप्पे</h2>
         <p class="section-lead">
@@ -208,7 +208,7 @@
 
       <!-- Filter Chips Strip -->
       <div class="filter-chips-strip">
-        <button class="filter-chip active" data-filter="all">सर्व अध्याय (All 18)</button>
+        <button class="filter-chip active" data-filter="all">सर्व Chapters (All 18)</button>
         <button class="filter-chip" data-filter="ancient">प्राचीन ते यांत्रिक (1-4)</button>
         <button class="filter-chip" data-filter="generations">५ मुख्य पिढ्या (5-8)</button>
         <button class="filter-chip" data-filter="pc-web">पीसी व इंटरनेट (9-11)</button>
@@ -330,6 +330,9 @@
             <button class="video-pill-btn" onclick="app.playGenerationVideo(5)" data-gen="5">
               <span>🧠</span> ५वी पिढी (AI व पुढे)
             </button>
+            <button class="video-pill-btn video-pill-ref" id="btnAiRefVideo" onclick="app.playAiReferenceVideo()" data-gen="ref" title="AI Motion Benchmark Reference Video (CO1.1)">
+              <span>✨</span> AI Reference क्लिप (CO1.1)
+            </button>
           </div>
         </div>
 
@@ -414,6 +417,25 @@
                 <div class="telemetry-spec-item">
                   <span class="telemetry-spec-label">उदाहरणे (Examples)</span>
                   <span class="telemetry-spec-val" id="telemetryExamples">ENIAC, UNIVAC I, EDVAC</span>
+                </div>
+              </div>
+
+              <!-- AI Reference Video Benchmark Banner / Note -->
+              <div class="video-ai-reference-note" id="videoAiRefNote">
+                <div class="ai-ref-header">
+                  <span class="ai-ref-badge">⭐ AI Motion Benchmark Reference</span>
+                  <span class="ai-ref-tag">CO1.1.mp4 • OmniFlash 1.1</span>
+                </div>
+                <p class="ai-ref-desc">
+                  <strong>महत्त्वाची संदर्भ टीप (Reference Note):</strong> <code>CO1.1.mp4</code> हा AI मोशन जनरेशनचा <strong>सुवर्ण संदर्भ (Reference Model)</strong> म्हणून जोडला आहे. पहिल्या पिढीच्या व्हॅक्यूम ट्यूबचे (Filament, Cathode, Anode) आणि १९४० च्या लॅबचे प्रत्यक्ष सिनेमॅटिक मॉडेल दर्शवणारा हा बेंचमार्क व्हिडिओ आहे.
+                </p>
+                <div class="ai-ref-actions">
+                  <button class="ai-ref-btn-play" onclick="app.playAiReferenceVideo()">
+                    <span>✨</span> CO1.1 AI Reference क्लिप प्ले करा
+                  </button>
+                  <button class="ai-ref-btn-toggle" onclick="app.playGenerationVideo(1)">
+                    <span>🎞️</span> मुख्य ५-मिनिट व्हिडिओ
+                  </button>
                 </div>
               </div>
             </div>

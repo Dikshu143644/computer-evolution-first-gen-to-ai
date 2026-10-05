@@ -2153,6 +2153,149 @@ h1, h2, h3, h4, h5, h6 {
   color: var(--text-primary);
 }
 
+.video-pill-btn.video-pill-ref {
+  background: linear-gradient(135deg, rgba(245, 158, 11, 0.15), rgba(234, 88, 12, 0.2));
+  color: #b45309;
+  border: 1px solid rgba(245, 158, 11, 0.45);
+  font-weight: 700;
+}
+
+.video-pill-btn.video-pill-ref:hover {
+  background: linear-gradient(135deg, rgba(245, 158, 11, 0.28), rgba(234, 88, 12, 0.32));
+  color: #78350f;
+  transform: translateY(-1px);
+}
+
+.video-pill-btn.video-pill-ref.active {
+  background: linear-gradient(135deg, #f59e0b, #ea580c);
+  color: #ffffff;
+  border-color: #d97706;
+  box-shadow: 0 4px 14px rgba(245, 158, 11, 0.35);
+}
+
+/* AI Reference Video Benchmark Card */
+.video-ai-reference-note {
+  margin: 1.25rem 0;
+  padding: 1.1rem 1.25rem;
+  background: linear-gradient(145deg, rgba(254, 243, 199, 0.65), rgba(255, 251, 235, 0.92));
+  border: 1px solid rgba(245, 158, 11, 0.4);
+  border-radius: var(--radius-subcard);
+  box-shadow: 0 4px 16px rgba(245, 158, 11, 0.08);
+  position: relative;
+  overflow: hidden;
+}
+
+.video-ai-reference-note::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 4px;
+  height: 100%;
+  background: linear-gradient(180deg, #f59e0b, #ea580c);
+}
+
+.ai-ref-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 0.6rem;
+  flex-wrap: wrap;
+}
+
+.ai-ref-badge {
+  font-family: var(--font-headline);
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: #92400e;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+.ai-ref-tag {
+  font-family: var(--font-mono);
+  font-size: 0.74rem;
+  font-weight: 700;
+  background: rgba(245, 158, 11, 0.2);
+  color: #b45309;
+  padding: 0.2rem 0.6rem;
+  border-radius: 6px;
+  border: 1px solid rgba(245, 158, 11, 0.3);
+}
+
+.ai-ref-desc {
+  font-size: 0.86rem;
+  line-height: 1.55;
+  color: #78350f;
+  margin: 0 0 0.85rem 0;
+}
+
+.ai-ref-desc strong {
+  color: #451a03;
+}
+
+.ai-ref-desc code {
+  font-family: var(--font-mono);
+  background: rgba(255, 255, 255, 0.85);
+  padding: 0.15rem 0.4rem;
+  border-radius: 4px;
+  border: 1px solid rgba(245, 158, 11, 0.3);
+  color: #b45309;
+  font-size: 0.82rem;
+}
+
+.ai-ref-actions {
+  display: flex;
+  gap: 0.6rem;
+  flex-wrap: wrap;
+}
+
+.ai-ref-btn-play {
+  background: linear-gradient(135deg, #f59e0b, #d97706);
+  color: #ffffff;
+  border: none;
+  font-family: var(--font-headline);
+  font-size: 0.82rem;
+  font-weight: 700;
+  padding: 0.45rem 0.95rem;
+  border-radius: var(--radius-pill);
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  transition: all 0.2s ease;
+  box-shadow: 0 2px 8px rgba(217, 119, 6, 0.25);
+}
+
+.ai-ref-btn-play:hover {
+  background: linear-gradient(135deg, #d97706, #b45309);
+  transform: translateY(-1px);
+}
+
+.ai-ref-btn-toggle {
+  background: rgba(255, 255, 255, 0.9);
+  border: 1px solid rgba(245, 158, 11, 0.4);
+  color: #92400e;
+  font-family: var(--font-headline);
+  font-size: 0.82rem;
+  font-weight: 600;
+  padding: 0.45rem 0.95rem;
+  border-radius: var(--radius-pill);
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  transition: all 0.2s ease;
+}
+
+.ai-ref-btn-toggle:hover {
+  background: #ffffff;
+  border-color: #f59e0b;
+  color: #78350f;
+}
+
 /* Audio Track & CC Toolbar */
 .video-cinema-toolbar {
   display: flex;
